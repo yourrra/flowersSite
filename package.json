@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:ts": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:css": "stylelint src/**/*.css",
     "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-radio-group": "^1.1.2",
     "@radix-ui/react-select": "^1.2.1",
+    "classnames": "^2.3.2",
     "mobx": "^6.9.0",
     "mobx-react": "^7.6.0",
     "react": "^18.2.0",
@@ -48,12 +50,17 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react-hooks/recommended"
     ],
     "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
     "plugins": [
-      "prettier",
-      "react-refresh"
+      "react-refresh",
+      "prettier"
     ],
     "rules": {
       "prettier/prettier": "error",
