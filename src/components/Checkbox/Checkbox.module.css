@@ -1,0 +1,49 @@
+.Checkbox {
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.CustomCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--colors-gray-1000);
+  border-radius: 4px;
+  margin-right: 12px;
+  background-color: var(--colors-white);
+  cursor: pointer;
+  transition: 200ms ease-in;
+  vertical-align: sub;
+}
+
+.CustomCheckbox::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 7.5px;
+  background-image: url('./checkbox-wh.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in;
+}
+
+.Checkbox:checked + .CustomCheckbox::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.Checkbox:checked + .CustomCheckbox {
+  border: 2px solid var(--colors-blue-700);
+  background-color: var(--colors-blue-700);
+}
+
+/* .Checkbox:focus + .CustomCheckbox {
+  box-shadow: 0 0 0 1px var(--colors-dark);
+} */
