@@ -1,5 +1,5 @@
 import { Button } from '../components/Button'
-import { Checkbox } from '../components/Checkbox/Checkbox'
+import { Checkbox } from '../components/Checkbox'
 
 export function Main() {
   return (
