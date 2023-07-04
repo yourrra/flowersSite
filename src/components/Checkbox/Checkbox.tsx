@@ -30,3 +30,4 @@ export const Checkbox = memo(
     )
   }),
 )
+s
