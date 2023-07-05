@@ -1,0 +1,47 @@
+.RadioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.RadioButtonContainer {
+  display: flex;
+  gap: 12px;
+
+  & > * {
+    cursor: pointer;
+  }
+}
+
+.RadioGroupRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.RadioGroupItem {
+  --size: 16px;
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  margin: 0;
+  background-color: var(--colors-white);
+  box-shadow: inset 0 0 0 2px var(--colors-gray-1000);
+}
+
+.RadioGroupIndicator {
+  --size: 16px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--colors-white);
+  box-shadow: inset 0 0 0 5px var(--colors-blue-700);
+}
