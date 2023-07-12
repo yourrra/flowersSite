@@ -58,7 +58,12 @@ export function Main() {
         alt={flower}
       />
       <div style={{ width: '315px' }}>
-        <Input title={'First Name'} placeholder={'First Name'} />
+        <Input
+          variant="Input&Title"
+          title={'First Name'}
+          placeholder={'First Name'}
+        />
+        <Input placeholder={'Second Name'} />
       </div>
       <Subscribe />
     </>
