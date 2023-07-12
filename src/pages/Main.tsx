@@ -5,6 +5,7 @@ import { RadioGroup } from '../components/RadioGroup'
 
 import cart from '../assets/cart.svg'
 import phone from '../assets/phone.svg'
+import { Logo } from '../components/Logo'
 
 export function Main() {
   return (
@@ -31,6 +32,7 @@ export function Main() {
       <Link type="link" props={{ to: '/cart' }} icon={cart}>
         Cart
       </Link>
+      <Logo />
     </>
   )
 }
