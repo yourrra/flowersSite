@@ -25,7 +25,7 @@ export function Checkbox({ label, id, checked, onCheckedChange }: Props) {
           id={id}
         >
           <RadixCheckbox.Indicator className={styles.Indicator}>
-            <img src={checkLogo} alt="" width={10} height={7.5} />
+            <img src={checkLogo} alt="checkLogo" width={10} height={7.5} />
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <label htmlFor={id}>

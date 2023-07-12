@@ -11,6 +11,7 @@ import phone from '../assets/phone.svg'
 import flowerAvif from '../assets/flower-one.avif'
 import flowerWebp from '../assets/flower-one.webp'
 import flower from '../assets/flower-one.jpg'
+import { Input } from '../components/Input'
 
 export function Main() {
   const [isChecked, setIsChecked] = useState(false)
@@ -55,6 +56,9 @@ export function Main() {
         imgJpg={flower}
         alt={flower}
       />
+      <div style={{ width: '315px' }}>
+        <Input title={'First Name'} placeholder={'First Name'} />
+      </div>
     </>
   )
 }

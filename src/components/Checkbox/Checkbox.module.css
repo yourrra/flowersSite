@@ -13,6 +13,7 @@ button {
 
 .Wrapper {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 12px;
 }
@@ -36,6 +37,7 @@ button {
   top: 0;
   left: 0;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   color: var(--colors-blue-700);
