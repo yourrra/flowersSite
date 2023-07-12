@@ -1,49 +1,42 @@
+/* reset */
+button {
+  all: unset;
+}
+
+.Checkbox,
+.Indicator {
+  --size: 16px;
+
+  width: var(--size);
+  height: var(--size);
+}
+
+.Wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .Checkbox {
-  position: absolute;
-  z-index: -1;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
-
-.CustomCheckbox {
   position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--colors-gray-1000);
   border-radius: 4px;
-  margin-right: 12px;
   background-color: var(--colors-white);
-  cursor: pointer;
+  box-shadow: inset 0 0 0 2px var(--colors-gray-1000);
   transition: 200ms ease-in;
-  vertical-align: sub;
+
+  &.isChecked {
+    background-color: var(--colors-blue-700);
+    box-shadow: none;
+    transition: 200ms ease-in;
+  }
 }
 
-.CustomCheckbox::before {
+.Indicator {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  display: inline-block;
-  width: 10px;
-  height: 7.5px;
-  background-image: url('./checkbox-wh.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  content: '';
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--colors-blue-700);
 }
-
-.Checkbox:checked + .CustomCheckbox::before {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.Checkbox:checked + .CustomCheckbox {
-  border: 2px solid var(--colors-blue-700);
-  background-color: var(--colors-blue-700);
-}
-
-/* .Checkbox:focus + .CustomCheckbox {
-  box-shadow: 0 0 0 1px var(--colors-dark);
-} */

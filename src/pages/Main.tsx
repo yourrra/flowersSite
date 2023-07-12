@@ -1,19 +1,21 @@
 import { Button } from '../components/Button'
-import { Checkbox } from '../components/Checkbox'
 import { Link } from '../components/Link'
 import { RadioGroup } from '../components/RadioGroup'
 
 import cart from '../assets/cart.svg'
 import phone from '../assets/phone.svg'
 import { Logo } from '../components/Logo'
+import { Checkbox } from '../components/Checkbox'
+import { useState } from 'react'
 
 export function Main() {
+  const [isChecked, setIsChecked] = useState(false)
+
   return (
     <>
       <Button variant="blue">Main</Button>
       <Button variant="red">Main</Button>
       <Button disabled>Main</Button>
-      <Checkbox text={'Main'} />
       <RadioGroup
         group={[
           { id: '1', label: 'Test1', value: '1' },
@@ -33,6 +35,14 @@ export function Main() {
         Cart
       </Link>
       <Logo />
+      <Checkbox
+        checked={isChecked}
+        label={'dfjsdipf'}
+        id={'1'}
+        onCheckedChange={() => {
+          setIsChecked(!isChecked)
+        }}
+      ></Checkbox>
     </>
   )
 }
