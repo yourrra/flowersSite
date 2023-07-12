@@ -1,12 +1,16 @@
 import { Button } from '../components/Button'
 import { Link } from '../components/Link'
 import { RadioGroup } from '../components/RadioGroup'
-
-import cart from '../assets/cart.svg'
-import phone from '../assets/phone.svg'
 import { Logo } from '../components/Logo'
 import { Checkbox } from '../components/Checkbox'
 import { useState } from 'react'
+import { Card } from '../components/Card'
+
+import cart from '../assets/cart.svg'
+import phone from '../assets/phone.svg'
+import flowerAvif from '../assets/flower-one.avif'
+import flowerWebp from '../assets/flower-one.webp'
+import flower from '../assets/flower-one.jpg'
 
 export function Main() {
   const [isChecked, setIsChecked] = useState(false)
@@ -42,7 +46,15 @@ export function Main() {
         onCheckedChange={() => {
           setIsChecked(!isChecked)
         }}
-      ></Checkbox>
+      />
+      <Card
+        price={'$1024.99'}
+        title={'Orange Rose Espana 70 cm'}
+        imgAvif={flowerAvif}
+        imgWebP={flowerWebp}
+        imgJpg={flower}
+        alt={flower}
+      />
     </>
   )
 }
