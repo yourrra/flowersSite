@@ -5,13 +5,14 @@ import { Logo } from '../components/Logo'
 import { Checkbox } from '../components/Checkbox'
 import { useState } from 'react'
 import { Card } from '../components/Card'
+import { Input } from '../components/Input'
+import { Subscribe } from '../components/Subscribe'
 
 import cart from '../assets/cart.svg'
 import phone from '../assets/phone.svg'
 import flowerAvif from '../assets/flower-one.avif'
 import flowerWebp from '../assets/flower-one.webp'
 import flower from '../assets/flower-one.jpg'
-import { Input } from '../components/Input'
 
 export function Main() {
   const [isChecked, setIsChecked] = useState(false)
@@ -59,6 +60,7 @@ export function Main() {
       <div style={{ width: '315px' }}>
         <Input title={'First Name'} placeholder={'First Name'} />
       </div>
+      <Subscribe />
     </>
   )
 }

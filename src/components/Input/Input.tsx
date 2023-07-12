@@ -1,21 +1,14 @@
 import cn from 'classnames'
-import {
-  type InputHTMLAttributes,
-  type PropsWithChildren,
-  memo,
-  forwardRef,
-} from 'react'
+import { type InputHTMLAttributes, memo, forwardRef } from 'react'
 import { Typography } from '../Typography'
 import arrow from '../../assets/arrow-down.svg'
 
 import styles from './Input.module.css'
 
-type Props = PropsWithChildren<
-  {
-    placeholder: string
-    title: string
-  } & InputHTMLAttributes<HTMLInputElement>
->
+type Props = {
+  placeholder: string
+  title: string
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const Input = memo(
   forwardRef<HTMLInputElement, Props>(
