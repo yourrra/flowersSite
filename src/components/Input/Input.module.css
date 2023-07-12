@@ -6,7 +6,7 @@
 
 .Input {
   width: 100%;
-  padding: 12px 200px 12px 16px;
+  padding: 12px 70px 12px 16px;
   border: none;
   box-shadow: inset 0 0 0 1px var(--colors-gray-900);
   color: var(--colors-gray-900);
@@ -16,7 +16,7 @@
 
   &:focus {
     border: none;
-    box-shadow: inset 0 0 0 1px var(--colors-dark);
+    box-shadow: inset 0 0 0 1px var(--colors-gray-1000);
     outline: 0;
   }
 

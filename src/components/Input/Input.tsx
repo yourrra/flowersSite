@@ -67,11 +67,6 @@ export const Input = memo(
                 {...htmlInputProps}
               />
             </form>
-            <div className={styles.InputButton}>
-              <button>
-                <img src={arrow} alt="arrow" />
-              </button>
-            </div>
           </div>
         </div>
       )
