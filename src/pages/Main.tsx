@@ -13,6 +13,7 @@ import phone from '../assets/phone.svg'
 import flowerAvif from '../assets/flower-one.avif'
 import flowerWebp from '../assets/flower-one.webp'
 import flower from '../assets/flower-one.jpg'
+import { Select } from '../components/Select'
 
 export function Main() {
   const [isChecked, setIsChecked] = useState(false)
@@ -66,6 +67,7 @@ export function Main() {
         <Input placeholder={'Second Name'} />
       </div>
       <Subscribe />
+      <Select />
     </>
   )
 }

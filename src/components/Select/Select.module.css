@@ -1,0 +1,48 @@
+/* reset */
+button {
+  all: unset;
+}
+
+.SelectTrigger {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background-color: var(--colors-white);
+  color: var(--colors-dark);
+  cursor: pointer;
+}
+
+.SelectTrigger[data-placeholder] {
+  color: var(--colors-blue-700);
+}
+
+.SelectIcon {
+  display: flex;
+  align-items: center;
+}
+
+.SelectContent {
+  overflow: hidden;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--colors-white);
+  box-shadow: 0 4px 32px 0 rgb(71 85 105 / 20%);
+}
+
+.SelectViewport {
+  padding: 5px;
+}
+
+.SelectItem {
+  cursor: pointer;
+}
+
+.SelectItem[data-disabled] {
+  color: var(--colors-blue-700);
+  pointer-events: none;
+}
+
+.SelectItem[data-highlighted] {
+  color: var(--colors-blue-700);
+  outline: none;
+}
