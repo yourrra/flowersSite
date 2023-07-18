@@ -10,8 +10,6 @@ import { Subscribe } from '../components/Subscribe'
 
 import cart from '../assets/cart.svg'
 import phone from '../assets/phone.svg'
-import flowerAvif from '../assets/flower-one.avif'
-import flowerWebp from '../assets/flower-one.webp'
 import flower from '../assets/flower-one.jpg'
 import { Select } from '../components/Select'
 
@@ -53,10 +51,7 @@ export function Main() {
       <Card
         price={'$1024.99'}
         title={'Orange Rose Espana 70 cm'}
-        imgAvif={flowerAvif}
-        imgWebP={flowerWebp}
-        imgJpg={flower}
-        alt={flower}
+        img={flower}
       />
       <div style={{ width: '315px' }}>
         <Input
