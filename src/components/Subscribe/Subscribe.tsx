@@ -1,6 +1,6 @@
 // import { type InputHTMLAttributes } from 'react'
 import { Button } from '../Button'
-import { Input } from '../Input'
+import { Input } from '../FormComponents/Input'
 
 import styles from './Subscribe.module.css'
 

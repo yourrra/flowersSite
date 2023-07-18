@@ -29,16 +29,3 @@
     transition: opacity 0.3s ease;
   }
 }
-
-.InputWrapper {
-  position: relative;
-
-  .InputButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    padding: 16px;
-  }
-}

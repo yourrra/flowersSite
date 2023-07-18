@@ -38,3 +38,13 @@ body {
   height: 50px;
   background: var(--colors-red-700);
 }
+
+.inputWrapper {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
