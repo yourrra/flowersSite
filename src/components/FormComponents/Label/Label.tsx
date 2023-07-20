@@ -1,11 +1,17 @@
+import { LabelHTMLAttributes, ReactNode } from 'react'
 import { Typography } from '../../Typography'
 
-type Props = { title: string; id: string }
+type Props = {
+  label: ReactNode
+} & LabelHTMLAttributes<HTMLLabelElement>
 
-export const Label = ({ title, id }: Props) => {
+export const Label = ({ id, label }: Props) => {
   return (
     <label htmlFor={id}>
-      <Typography variant="label">{title}</Typography>
+      <Typography variant="label">
+        {label}
+        <span>*</span>
+      </Typography>
     </label>
   )
 }

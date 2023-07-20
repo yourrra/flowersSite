@@ -1,0 +1,86 @@
+.Wrapper {
+  /* position: fixed; */
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  padding: 0 24px;
+  margin-bottom: 70px;
+  background-color: var(--colors-white);
+
+  .Header {
+    display: flex;
+    flex-direction: column;
+
+    .HeaderTop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--colors-gray-600);
+    }
+
+    .HeaderBottom {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--colors-gray-600);
+
+      @media (width >= 990px) {
+        justify-content: space-between;
+      }
+    }
+
+    .Menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      @media (width >= 990px) {
+        .MenuLink {
+          display: none;
+        }
+      }
+    }
+
+    .Delivery {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+        gap: 24px;
+      }
+
+      .City {
+        display: flex;
+
+        .Rome {
+          color: var(--colors-blue-700);
+        }
+      }
+    }
+
+    .Burger {
+      @media (width >= 990px) {
+        display: none;
+      }
+    }
+
+    .Language {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+      }
+    }
+
+    .LinkLeft {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+        gap: 40px;
+      }
+    }
+  }
+}

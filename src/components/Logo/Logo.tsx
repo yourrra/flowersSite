@@ -10,7 +10,7 @@ type Props = {
   variant?: 'big' | 'small'
 }
 
-export function Logo({ variant = 'big', ...htmlImageProps }: Props) {
+export const Logo = ({ variant = 'big', ...htmlImageProps }: Props) => {
   return (
     <Link type="link" props={{ to: URLS.MAIN }}>
       <img
