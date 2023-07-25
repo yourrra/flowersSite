@@ -7,14 +7,17 @@ import { Label } from '../Label/Label'
 type Props = {
   label?: string
   id: string
+  required?: boolean
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'id'>
 
 export const Input = memo(
   forwardRef<HTMLInputElement, Props>(
-    ({ label, id, className = '', ...htmlInputProps }, ref) => {
+    ({ label, id, required, className = '', ...htmlInputProps }, ref) => {
       return (
         <div className={styles.Wrapper}>
-          {label && <Label label={label} htmlFor={id} />}
+          {label && (
+            <Label label={label} htmlFor={id} aria-required={required} />
+          )}
           <input
             placeholder={label}
             id={id}

@@ -1,8 +1,10 @@
 import { Link } from '../Link'
 import * as URLS from '../../constants/urls'
+import { Logo } from '../Logo'
+import { useLocation } from 'react-router-dom'
+import cn from 'classnames'
 
 import phone from '../../assets/phone.svg'
-import logo from '../../assets/logo.svg'
 import menu from '../../assets/menu.svg'
 import cart from '../../assets/cart.svg'
 import arrow from '../../assets/arrow-bl.svg'
@@ -11,11 +13,27 @@ import map from '../../assets/map.svg'
 import styles from './Header.module.css'
 
 export function Header() {
+  const location = useLocation()
+
+  let currentPage
+  if (location.pathname === '/') {
+    currentPage = 'main'
+  } else if (location.pathname === '/about') {
+    currentPage = 'about'
+  } else {
+    currentPage = 'other'
+  }
+
   return (
     <div className={styles.Wrapper}>
       <header className={styles.Header}>
         <div className={styles.HeaderTop}>
-          <img src={logo} alt="logo" />
+          <div className={styles.LogoBig}>
+            <Logo />
+          </div>
+          <div className={styles.LogoSmall}>
+            <Logo variant="small" />
+          </div>
           <div className={styles.Delivery}>
             <div className={styles.City}>
               <img src={map} alt="map" />
@@ -26,7 +44,7 @@ export function Header() {
             </div>
             <Link
               type="a"
-              props={{ href: 'tel:++80509379992' }}
+              props={{ href: 'tel:+80509379992' }}
               icon={phone}
               variant="accent"
             >
@@ -37,7 +55,7 @@ export function Header() {
             <div className={styles.MenuLink}>
               <Link
                 type="a"
-                props={{ href: 'tel:++80509379992' }}
+                props={{ href: 'tel:+80509379992' }}
                 icon={phone}
                 variant="accent"
               >
@@ -53,21 +71,38 @@ export function Header() {
             </div>
           </div>
         </div>
-        <div className={styles.HeaderBottom}>
+        {/* <hr className={styles.Line} /> */}
+        <nav className={styles.HeaderBottom}>
           <div className={styles.LinkLeft}>
-            <Link type="link" props={{ to: URLS.MAIN }}>
+            <Link
+              type="link"
+              props={{
+                to: URLS.MAIN,
+                className: cn(styles.Link, {
+                  [styles.LinkActive]: currentPage === 'main',
+                }),
+              }}
+            >
               Shop
             </Link>
-            <Link type="link" props={{ to: URLS.ABOUT }}>
+            <Link
+              type="link"
+              props={{
+                to: URLS.ABOUT,
+                className: cn(styles.Link, {
+                  [styles.LinkActive]: currentPage === 'about',
+                }),
+              }}
+            >
               About me
             </Link>
           </div>
-          <div>
+          <div className={styles.Link}>
             <Link type="link" props={{ to: URLS.CART }} icon={cart}>
               Cart
             </Link>
           </div>
-        </div>
+        </nav>
       </header>
     </div>
   )

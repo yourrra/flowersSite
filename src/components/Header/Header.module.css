@@ -1,9 +1,10 @@
 .Wrapper {
-  /* position: fixed; */
+  position: relative;
   z-index: 1;
   top: 0;
   width: 100%;
   padding: 0 24px;
+  border-bottom: 1px solid var(--colors-gray-600);
   margin-bottom: 70px;
   background-color: var(--colors-white);
 
@@ -11,24 +12,46 @@
     display: flex;
     flex-direction: column;
 
-    .HeaderTop {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--colors-gray-600);
-    }
-
+    .HeaderTop,
     .HeaderBottom {
       display: flex;
       align-items: center;
-      justify-content: end;
+    }
+
+    .HeaderTop {
+      justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px solid var(--colors-gray-600);
+    }
+
+    .LogoBig {
+      display: none;
+
+      @media (width >= 990px) {
+        display: inline-block;
+      }
+    }
+
+    .LogoSmall {
+      @media (width >= 990px) {
+        display: none;
+      }
+    }
+
+    .HeaderBottom {
+      justify-content: end;
 
       @media (width >= 990px) {
         justify-content: space-between;
       }
+    }
+
+    .Line {
+      all: unset;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid var(--colors-gray-600);
     }
 
     .Menu {
@@ -61,6 +84,8 @@
     }
 
     .Burger {
+      all: unset;
+
       @media (width >= 990px) {
         display: none;
       }
@@ -81,6 +106,14 @@
         display: flex;
         gap: 40px;
       }
+    }
+
+    .Link {
+      padding: 8px 0;
+    }
+
+    .LinkActive {
+      border-bottom: 3px solid var(--colors-blue-700);
     }
   }
 }
