@@ -11,9 +11,20 @@ import arrow from '../../assets/arrow-bl.svg'
 import map from '../../assets/map.svg'
 
 import styles from './Header.module.css'
+import { Menu } from '@components/Menu'
+import { useState } from 'react'
 
 export function Header() {
   const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const openModal = () => {
+    setIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
 
   let currentPage
   if (location.pathname === '/') {
@@ -62,9 +73,10 @@ export function Header() {
                 +8 050 937 99 92
               </Link>
             </div>
-            <button type="button" className={styles.Burger}>
-              <img src={menu} alt="menu" />
+            <button type="button" className={styles.Burger} onClick={openModal}>
+              <img src={menu} alt="open menu" />
             </button>
+            <Menu isOpen={isOpen} onClose={closeModal} />
             <div className={styles.Language}>
               <div>ENG</div>
               <img src={arrow} alt="arrow" />
