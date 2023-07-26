@@ -16,9 +16,14 @@ export function Card({ img, price, title }: Props) {
         <Typography className={styles.Text} variant="normal">
           {title}
         </Typography>
-        <Typography className={styles.Text} variant="label">
+        <Typography className={styles.Price} variant="label">
           {price}
         </Typography>
+        <div className={styles.ButtonWrapper}>
+          <button type="button" className={styles.Button}>
+            <Typography variant="label">ADD TO CART</Typography>
+          </button>
+        </div>
       </div>
     </div>
   )
