@@ -62,7 +62,7 @@ export function Header() {
                 +8 050 937 99 92
               </Link>
             </div>
-            <button className={styles.Burger}>
+            <button type="button" className={styles.Burger}>
               <img src={menu} alt="menu" />
             </button>
             <div className={styles.Language}>
