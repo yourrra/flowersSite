@@ -1,0 +1,39 @@
+.Wrapper {
+  max-width: 260px;
+
+  &:hover {
+    .Price {
+      display: none;
+    }
+
+    .ButtonWrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .TextBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 24px;
+    gap: 4px;
+
+    .Text {
+      text-align: center;
+    }
+
+    .Price {
+      text-align: center;
+    }
+
+    .ButtonWrapper {
+      display: none;
+    }
+
+    .Button {
+      all: unset;
+      color: var(--colors-blue-700);
+    }
+  }
+}

@@ -1,32 +1,37 @@
+import { Typography } from '../Typography'
+import * as RadixCheckbox from '@radix-ui/react-checkbox'
+import checkLogo from '../../assets/checkbox-wh.svg'
+import cn from 'classnames'
+
 import styles from './Checkbox.module.css'
-import {
-  type PropsWithChildren,
-  type InputHTMLAttributes,
-  memo,
-  forwardRef,
-} from 'react'
 
-type Props = PropsWithChildren<
-  {
-    text: string
-  } & InputHTMLAttributes<HTMLInputElement>
->
+type Props = {
+  id: string
+  label: string
+  checked: RadixCheckbox.CheckboxProps['checked']
+  onCheckedChange: RadixCheckbox.CheckboxProps['onCheckedChange']
+}
 
-export const Checkbox = memo(
-  forwardRef<HTMLInputElement, Props>(({ text }, ref) => {
-    return (
+export function Checkbox({ label, id, checked, onCheckedChange }: Props) {
+  return (
+    <form>
       <div className={styles.Wrapper}>
-        <label>
-          <input
-            type="checkbox"
-            name="ch1"
-            ref={ref}
-            className={styles.Checkbox}
-          />
-          <span className={styles.CustomCheckbox}></span>
-          {text}
+        <RadixCheckbox.Root
+          checked={checked}
+          onCheckedChange={onCheckedChange}
+          className={cn(styles.Checkbox, {
+            [styles.isChecked]: checked,
+          })}
+          id={id}
+        >
+          <RadixCheckbox.Indicator className={styles.Indicator}>
+            <img src={checkLogo} alt="checkLogo" width={10} height={7.5} />
+          </RadixCheckbox.Indicator>
+        </RadixCheckbox.Root>
+        <label htmlFor={id}>
+          <Typography variant="label">{label}</Typography>
         </label>
       </div>
-    )
-  }),
-)
+    </form>
+  )
+}

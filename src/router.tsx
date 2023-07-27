@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import * as URLS from './constants/urls'
-import { Main } from './pages/Main'
+import { Main } from './pages/main/Main'
 import { NotFound } from './pages/404'
 import { About } from './pages/About'
 import { Cart } from './pages/Cart'

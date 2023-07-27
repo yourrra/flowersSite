@@ -1,0 +1,119 @@
+.Wrapper {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--colors-gray-600);
+  margin-bottom: 70px;
+  background-color: var(--colors-white);
+
+  .Header {
+    display: flex;
+    flex-direction: column;
+
+    .HeaderTop,
+    .HeaderBottom {
+      display: flex;
+      align-items: center;
+    }
+
+    .HeaderTop {
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .LogoBig {
+      display: none;
+
+      @media (width >= 990px) {
+        display: inline-block;
+      }
+    }
+
+    .LogoSmall {
+      @media (width >= 990px) {
+        display: none;
+      }
+    }
+
+    .HeaderBottom {
+      justify-content: end;
+
+      @media (width >= 990px) {
+        justify-content: space-between;
+      }
+    }
+
+    .Line {
+      all: unset;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid var(--colors-gray-600);
+    }
+
+    .Menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      @media (width >= 990px) {
+        .MenuLink {
+          display: none;
+        }
+      }
+    }
+
+    .Delivery {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+        gap: 24px;
+      }
+
+      .City {
+        display: flex;
+
+        .Rome {
+          color: var(--colors-blue-700);
+        }
+      }
+    }
+
+    .Burger {
+      all: unset;
+
+      @media (width >= 990px) {
+        display: none;
+      }
+    }
+
+    .Language {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+      }
+    }
+
+    .LinkLeft {
+      display: none;
+
+      @media (width >= 990px) {
+        display: flex;
+        gap: 40px;
+      }
+    }
+
+    .Link {
+      padding: 8px 0;
+    }
+
+    .LinkActive {
+      border-bottom: 3px solid var(--colors-blue-700);
+    }
+  }
+}
