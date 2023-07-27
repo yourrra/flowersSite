@@ -1,7 +1,7 @@
-import { Layout } from '@components/Layout'
+import { Layout } from '@/components/Layout'
 import { Heading } from './components/Heading'
-import { Input } from '@components/FormComponents/Input'
-import { Card } from '@components/Card'
+import { Input } from '@/components/FormComponents/Input'
+import { Card } from '@/components/Card'
 
 import flower from '../../assets/flower-one.jpg'
 

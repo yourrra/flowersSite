@@ -11,7 +11,7 @@ import arrow from '../../assets/arrow-bl.svg'
 import map from '../../assets/map.svg'
 
 import styles from './Header.module.css'
-import { Menu } from '@components/Menu'
+import { Menu } from '@/components/Menu'
 import { useState } from 'react'
 
 export function Header() {

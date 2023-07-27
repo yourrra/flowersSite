@@ -1,5 +1,5 @@
-import { Portal } from '@components/Portal'
-import { Link } from '@components/Link'
+import { Portal } from '@/components/Portal'
+import { Link } from '@/components/Link'
 import * as URLS from '../../constants/urls'
 import cn from 'classnames'
 

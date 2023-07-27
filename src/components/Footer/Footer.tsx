@@ -1,6 +1,6 @@
-import { Logo } from '@components/Logo'
-import { Link } from '@components/Link'
-import { Typography } from '@components/Typography'
+import { Logo } from '@/components/Logo'
+import { Link } from '@/components/Link'
+import { Typography } from '@/components/Typography'
 import * as URLS from '../../constants/urls'
 
 import phone from '../../assets/phone.svg'
@@ -9,7 +9,7 @@ import twitter from '../../assets/twitter.svg'
 import whatsAap from '../../assets/whatsAap.svg'
 
 import styles from './Footer.module.css'
-import { Subscribe } from '@components/Subscribe'
+import { Subscribe } from '@/components/Subscribe'
 
 export const Footer = () => {
   return (
