@@ -15,7 +15,7 @@ import { Menu } from '@/components/Menu'
 import { useState } from 'react'
 
 export function Header() {
-  const location = useLocation()
+  const { pathname } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
 
   const openModal = () => {
@@ -24,15 +24,6 @@ export function Header() {
 
   const closeModal = () => {
     setIsOpen(false)
-  }
-
-  let currentPage
-  if (location.pathname === '/') {
-    currentPage = 'main'
-  } else if (location.pathname === '/about') {
-    currentPage = 'about'
-  } else {
-    currentPage = 'other'
   }
 
   return (
@@ -83,7 +74,7 @@ export function Header() {
             </div>
           </div>
         </div>
-        {/* <hr className={styles.Line} /> */}
+        <hr className={styles.Line} />
         <nav className={styles.HeaderBottom}>
           <div className={styles.LinkLeft}>
             <Link
@@ -91,7 +82,7 @@ export function Header() {
               props={{
                 to: URLS.MAIN,
                 className: cn(styles.Link, {
-                  [styles.LinkActive]: currentPage === 'main',
+                  [styles.LinkActive]: pathname === URLS.MAIN,
                 }),
               }}
             >
@@ -102,7 +93,7 @@ export function Header() {
               props={{
                 to: URLS.ABOUT,
                 className: cn(styles.Link, {
-                  [styles.LinkActive]: currentPage === 'about',
+                  [styles.LinkActive]: pathname === URLS.ABOUT,
                 }),
               }}
             >

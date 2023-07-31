@@ -1,9 +1,7 @@
 .Wrapper {
-  position: relative;
   z-index: 1;
   top: 0;
   width: 100%;
-  padding: 0 24px;
   border-bottom: 1px solid var(--colors-gray-600);
   margin-bottom: 70px;
   background-color: var(--colors-white);
@@ -16,11 +14,12 @@
     .HeaderBottom {
       display: flex;
       align-items: center;
+      padding: 0 24px;
     }
 
     .HeaderTop {
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 12px 24px;
     }
 
     .LogoBig {
@@ -47,9 +46,6 @@
 
     .Line {
       all: unset;
-      position: absolute;
-      top: 72px;
-      left: 0;
       width: 100%;
       border-bottom: 1px solid var(--colors-gray-600);
     }
