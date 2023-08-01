@@ -1,0 +1,42 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120px;
+  gap: 24px;
+}
+
+.Sort {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ButtonWrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.Button {
+  all: unset;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--colors-blue-700);
+  }
+}
+
+.Select {
+  display: flex;
+}
+
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.ShowMore {
+  display: flex;
+  justify-content: center;
+}

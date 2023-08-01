@@ -1,6 +1,14 @@
 .Wrapper {
   max-width: 260px;
 
+  /* @media (width >= 990px) {
+    max-width: 224px;
+  }
+
+  @media (width >= 390px) {
+    max-width: 342px;
+  } */
+
   &:hover {
     .Price {
       display: none;
