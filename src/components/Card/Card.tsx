@@ -1,30 +1,35 @@
+import { Link } from '../Link'
 import { Picture } from '../Picture'
 import { Typography } from '../Typography'
 import styles from './Card.module.css'
+import * as URLS from '../../constants/urls'
 
 type Props = {
   img: string
   price: string
   title: string
+  id: string
 }
 
-export function Card({ img, price, title }: Props) {
+export function Card({ img, price, title, id }: Props) {
   return (
-    <div className={styles.Wrapper}>
-      <Picture img={img} alt={img} />
-      <div className={styles.TextBlock}>
-        <Typography className={styles.Text} variant="normal">
-          {title}
-        </Typography>
-        <Typography className={styles.Price} variant="label">
-          {price}
-        </Typography>
-        <div className={styles.ButtonWrapper}>
-          <button type="button" className={styles.Button}>
-            <Typography variant="label">ADD TO CART</Typography>
-          </button>
+    <Link type="link" props={{ to: URLS.PRODUCT(id), className: styles.Link }}>
+      <div className={styles.Wrapper}>
+        <Picture img={img} alt={img} />
+        <div className={styles.TextBlock}>
+          <Typography className={styles.Text} variant="normal">
+            {title}
+          </Typography>
+          <Typography className={styles.Price} variant="label">
+            {price}
+          </Typography>
+          <div className={styles.ButtonWrapper}>
+            <button type="button" className={styles.Button}>
+              <Typography variant="label">ADD TO CART</Typography>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

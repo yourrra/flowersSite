@@ -12,26 +12,31 @@ export const Items = () => {
       title: 'Flower1',
       price: '300$',
       img: flower,
+      id: 1,
     },
     {
       title: 'Flower2',
       price: '300$',
       img: flower,
+      id: 2,
     },
     {
       title: 'Flower3',
       price: '300$',
       img: flower,
+      id: 3,
     },
     {
       title: 'Flower4',
       price: '300$',
       img: flower,
+      id: 4,
     },
     {
       title: 'Flower5',
       price: '300$',
       img: flower,
+      id: 5,
     },
   ]
 
@@ -59,7 +64,7 @@ export const Items = () => {
       </div>
       <div className={styles.Cards}>
         {testItems.map(e => (
-          <Card title={e.title} price={e.price} img={e.img} />
+          <Card title={e.title} price={e.price} img={e.img} id={e.id} />
         ))}
       </div>
       <div className={styles.ShowMore}>
