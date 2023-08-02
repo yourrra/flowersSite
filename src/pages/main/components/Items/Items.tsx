@@ -12,31 +12,31 @@ export const Items = () => {
       title: 'Flower1',
       price: '300$',
       img: flower,
-      id: 1,
+      id: '1',
     },
     {
       title: 'Flower2',
       price: '300$',
       img: flower,
-      id: 2,
+      id: '2',
     },
     {
       title: 'Flower3',
       price: '300$',
       img: flower,
-      id: 3,
+      id: '3',
     },
     {
       title: 'Flower4',
       price: '300$',
       img: flower,
-      id: 4,
+      id: '4',
     },
     {
       title: 'Flower5',
       price: '300$',
       img: flower,
-      id: 5,
+      id: '5',
     },
   ]
 
