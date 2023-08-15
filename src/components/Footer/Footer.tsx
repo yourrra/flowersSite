@@ -118,7 +118,7 @@ export const Footer = () => {
             In an effort to worthily lead a person on his last journey,
             relatives, friends and colleagues present him with flowers.
           </Typography>
-          <Subscribe />
+          <Subscribe id={'1c'} />
         </div>
       </footer>
     </div>
