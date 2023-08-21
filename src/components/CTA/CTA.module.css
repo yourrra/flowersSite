@@ -1,0 +1,23 @@
+.Wrapper {
+  display: flex;
+}
+
+.Counter {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--colors-gray-800);
+  border-right: transparent;
+  gap: 19.5px;
+
+  @media (width >= 391px) {
+    width: 124px;
+  }
+}
+
+.Button {
+  all: unset;
+  cursor: pointer;
+}

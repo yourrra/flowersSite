@@ -66,5 +66,6 @@
 }
 
 .Description {
+  margin-bottom: 40px;
   color: var(--colors-gray-900);
 }

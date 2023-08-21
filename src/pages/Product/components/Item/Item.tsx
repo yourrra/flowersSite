@@ -3,6 +3,7 @@ import { Typography } from '@/components/Typography'
 import styles from './Item.module.css'
 
 import flower from '../../../../assets/flower-two.jpg'
+import { CTA } from '@/components/CTA'
 
 export const Item = () => {
   return (
@@ -55,6 +56,7 @@ export const Item = () => {
             of a great group. Only here longing and passion turned into
             something brighter - into real joy
           </div>
+          <CTA />
         </div>
       </div>
     </section>
