@@ -1,5 +1,6 @@
 import { Card } from '@/components/Card'
 import { Typography } from '@/components/Typography'
+// import { useEffect, useState } from 'react'
 
 import styles from './Items.module.css'
 
@@ -7,6 +8,14 @@ import flower from '../../../../assets/flower-one.jpg'
 import arrow from '../../../../assets/arrow-bl.svg'
 
 export const Items = () => {
+  // const [items, setItems] = useState([])
+
+  // useEffect(() => {
+  //   fetch('https://juniper-ringed-value.glitch.me/items')
+  //     .then(res => res.json())
+  //     .then(data => setItems(data.items))
+  // }, [])
+
   const testItems = [
     {
       title: 'Flower1',
@@ -66,6 +75,15 @@ export const Items = () => {
         {testItems.map(e => (
           <Card title={e.title} price={e.price} img={e.img} id={e.id} />
         ))}
+        {/* {items.map(item => (
+          <Card
+            key={item.id}
+            title={item.name}
+            price={item.price}
+            img={item.image}
+            id={item.id}
+          />
+        ))} */}
       </div>
       <div className={styles.ShowMore}>
         <button type="button" className={styles.Button}>
