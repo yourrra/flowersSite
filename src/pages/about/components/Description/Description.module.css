@@ -1,0 +1,13 @@
+.Description {
+  margin-bottom: 80px;
+
+  @media (width >= 990px) {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+}
+
+.TextBlock {
+  text-align: center;
+}
