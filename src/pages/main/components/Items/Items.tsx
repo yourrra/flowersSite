@@ -1,53 +1,25 @@
 import { Card } from '@/components/Card'
 import { Typography } from '@/components/Typography'
-// import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { fetchItems } from '@/services/api'
 
 import styles from './Items.module.css'
 
-import flower from '../../../../assets/flower-one.jpg'
 import arrow from '../../../../assets/arrow-bl.svg'
 
 export const Items = () => {
-  // const [items, setItems] = useState([])
+  const { data, isLoading, isError, error }: any = useQuery({
+    queryKey: ['items'],
+    queryFn: fetchItems,
+  })
 
-  // useEffect(() => {
-  //   fetch('https://juniper-ringed-value.glitch.me/items')
-  //     .then(res => res.json())
-  //     .then(data => setItems(data.items))
-  // }, [])
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
 
-  const testItems = [
-    {
-      title: 'Flower1',
-      price: '300$',
-      img: flower,
-      id: '1',
-    },
-    {
-      title: 'Flower2',
-      price: '300$',
-      img: flower,
-      id: '2',
-    },
-    {
-      title: 'Flower3',
-      price: '300$',
-      img: flower,
-      id: '3',
-    },
-    {
-      title: 'Flower4',
-      price: '300$',
-      img: flower,
-      id: '4',
-    },
-    {
-      title: 'Flower5',
-      price: '300$',
-      img: flower,
-      id: '5',
-    },
-  ]
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
 
   return (
     <section className={styles.Wrapper}>
@@ -72,10 +44,7 @@ export const Items = () => {
         </div>
       </div>
       <div className={styles.Cards}>
-        {testItems.map(e => (
-          <Card title={e.title} price={e.price} img={e.img} id={e.id} />
-        ))}
-        {/* {items.map(item => (
+        {data.map((item: any) => (
           <Card
             key={item.id}
             title={item.name}
@@ -83,7 +52,7 @@ export const Items = () => {
             img={item.image}
             id={item.id}
           />
-        ))} */}
+        ))}
       </div>
       <div className={styles.ShowMore}>
         <button type="button" className={styles.Button}>
