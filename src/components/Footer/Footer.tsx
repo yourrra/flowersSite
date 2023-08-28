@@ -98,7 +98,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link type="link" props={{ to: URLS.CART }}>
+                <Link type="link" props={{ to: URLS.ORDER }}>
                   Shiping
                 </Link>
               </li>

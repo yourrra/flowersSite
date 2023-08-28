@@ -29,6 +29,10 @@ body {
   text-size-adjust: 100%;
 }
 
+fieldset {
+  all: unset;
+}
+
 #root {
   height: 100%;
 }
