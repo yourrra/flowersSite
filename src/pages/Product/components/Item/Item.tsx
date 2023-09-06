@@ -9,11 +9,11 @@ import styles from './Item.module.css'
 import flower from '../../../../assets/flower-two.jpg'
 
 export const Item = () => {
-  const { id }: any = useParams()
+  const { id } = useParams()
 
-  const { data, isLoading, isError, error }: any = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['item', id],
-    queryFn: () => fetchItem(id),
+    queryFn: () => fetchItem(id || ''),
   })
 
   if (isLoading) {
@@ -21,7 +21,7 @@ export const Item = () => {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>
+    return <span>Error: {(error as Error).message}</span>
   }
 
   return (

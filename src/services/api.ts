@@ -10,6 +10,7 @@ interface Items {
   name: string
   price: string
   image: string
+  category: string
 }
 
 interface ApiResponse {
@@ -36,7 +37,9 @@ export async function fetchItem(id: string): Promise<Items> {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    return response.json()
+    const data: Items = await response.json()
+    return data
+    // return response.json()
   } catch (e) {
     console.error(e)
     throw e

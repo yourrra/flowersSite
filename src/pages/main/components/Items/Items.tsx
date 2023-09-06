@@ -29,7 +29,7 @@ export const Items = () => {
             <Typography variant="link">All flowers</Typography>
           </button>
           <button type="button" className={styles.Button}>
-            <Typography variant="link"> Gifts</Typography>
+            <Typography variant="link">Gifts</Typography>
           </button>
           <button type="button" className={styles.Button}>
             <Typography variant="link">Roses</Typography>

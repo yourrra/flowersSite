@@ -4,8 +4,8 @@ import { Typography } from '../Typography'
 
 import styles from './CTA.module.css'
 
-import minus from '../../assets/minus.svg'
-import plus from '../../assets/plus.svg'
+import minus from '@/assets/minus.svg'
+import plus from '@/assets/plus.svg'
 
 export const CTA = memo(() => {
   const [count, setCount] = useState(0)
