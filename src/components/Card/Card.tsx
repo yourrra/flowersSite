@@ -1,5 +1,4 @@
 import { Link } from '../Link'
-import { Picture } from '../Picture'
 import { Typography } from '../Typography'
 import styles from './Card.module.css'
 import * as URLS from '../../constants/urls'
@@ -13,9 +12,17 @@ type Props = {
 
 export function Card({ img, price, title, id }: Props) {
   return (
-    <Link type="link" props={{ to: URLS.PRODUCT(id), className: styles.Link }}>
+    <Link
+      type="link"
+      props={{
+        to: URLS.PRODUCT(id),
+        className: styles.Link,
+        state: { title },
+      }}
+    >
       <div className={styles.Wrapper}>
-        <Picture img={img} alt={img} />
+        <img src={img} alt={title} />
+        {/* <Picture img={img} alt={img} /> */}
         <div className={styles.TextBlock}>
           <Typography className={styles.Text} variant="normal">
             {title}

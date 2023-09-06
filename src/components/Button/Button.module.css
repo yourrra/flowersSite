@@ -9,6 +9,7 @@
   line-height: 24px;
   text-transform: uppercase;
   transform: 200ms;
+  white-space: nowrap;
 
   &.isBlue {
     background-color: var(--colors-blue-700);

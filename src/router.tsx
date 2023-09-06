@@ -5,7 +5,7 @@ import { NotFound } from './pages/404'
 import { About } from './pages/about/About'
 import { Cart } from './pages/Cart'
 import { Order } from './pages/Order'
-import { Product } from './pages/Product'
+import { Product } from './pages/Product/Product'
 
 export const router = createBrowserRouter([
   {

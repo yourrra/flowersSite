@@ -1,3 +1,182 @@
-.About {
-  width: 100%;
+.Wrapper {
+  margin-bottom: 120px;
+}
+
+/* AboutUS */
+
+.AboutUs {
+  margin-bottom: 32px;
+
+  @media (width >= 391px) {
+    margin-bottom: 80px;
+  }
+
+  @media (width >= 990px) {
+    max-width: 1190px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+}
+
+.Heading {
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.Description {
+  margin-bottom: 32px;
+  color: var(--colors-gray-900);
+}
+
+/* History */
+
+.History {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 56px;
+
+  @media (width >= 391px) {
+    margin-bottom: 120px;
+    gap: 56px;
+  }
+
+  @media (width >= 990px) {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.Tulip {
+  width: 342px;
+  height: 352px;
+  object-fit: cover;
+
+  @media (width >= 391px) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.Title {
+  margin-bottom: 40px;
+}
+
+.Line {
+  width: 74px;
+  border: 2px solid var(--colors-gray-600);
+}
+
+.TextHistory {
+  @media (width >= 990px) {
+    padding: 0 86px 68px 84px;
+  }
+}
+
+.Text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.HistoryDescription {
+  color: var(--colors-gray-900);
+
+  @media (width >= 990px) {
+    width: 595px;
+  }
+}
+
+/* Team */
+
+.Team {
+  margin-bottom: 72px;
+
+  @media (width >= 391px) {
+    margin-bottom: 120px;
+  }
+
+  @media (width >= 990px) {
+    max-width: 1190px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+}
+
+.CardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (width >= 391px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  }
+
+  @media (width >= 990px) {
+    grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
+  }
+}
+
+/* Result */
+
+.Result {
+  margin-bottom: 56px;
+  background-color: var(--colors-gray-50);
+
+  @media (width >= 390px) {
+    margin-bottom: 120px;
+  }
+}
+
+.WrapperResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 120px;
+
+  @media (width >= 990px) {
+    flex-direction: row;
+  }
+}
+
+.TextResult {
+  text-align: center;
+}
+
+/* Text */
+
+.TextWrapper {
+  margin-bottom: 80px;
+
+  @media (width >= 990px) {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+}
+
+.TextBlock {
+  text-align: center;
+}
+
+/* Ending */
+
+.Ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+
+  @media (width >= 990px) {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+.EndingText {
+  text-align: center;
 }

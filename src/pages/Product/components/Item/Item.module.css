@@ -1,0 +1,71 @@
+.Wrapper {
+  max-width: 1190px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
+
+.Img {
+  width: 100%;
+  min-height: 480px;
+  object-fit: cover;
+
+  @media (width >= 391px) {
+    max-height: 740px;
+  }
+
+  @media (width >= 990px) {
+    min-width: 510px;
+    max-height: 620px;
+  }
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (width >= 391px) {
+    gap: 40px;
+  }
+
+  @media (width >= 990px) {
+    flex-direction: row;
+  }
+
+  @media (width >= 1440px) {
+    gap: 85px;
+  }
+}
+
+.Name {
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.PriceOld {
+  color: var(--colors-gray-800);
+}
+
+.Price {
+  margin-bottom: 24px;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  gap: 40px;
+}
+
+.Title {
+  margin-bottom: 8px;
+}
+
+.Text {
+  font-weight: 500;
+}
+
+.Description {
+  margin-bottom: 40px;
+  color: var(--colors-gray-900);
+}
