@@ -14,8 +14,6 @@ export const CTA = memo(() => {
     if (count > 0) {
       setCount(count - 1)
     }
-
-    return count
   }
 
   const handleIncrement = () => {
@@ -41,7 +39,7 @@ export const CTA = memo(() => {
           <img src={plus} alt="plus" />
         </button>
       </div>
-      <Button variant="red" type="submit">
+      <Button variant="red" type="button">
         ADD TO CART
       </Button>
     </div>
