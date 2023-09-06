@@ -1,0 +1,23 @@
+.AboutUs {
+  margin-bottom: 32px;
+
+  @media (width >= 391px) {
+    margin-bottom: 80px;
+  }
+
+  @media (width >= 990px) {
+    max-width: 1190px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+}
+
+.Heading {
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.Description {
+  margin-bottom: 32px;
+  color: var(--colors-gray-900);
+}

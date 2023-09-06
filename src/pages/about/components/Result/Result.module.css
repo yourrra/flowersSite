@@ -1,0 +1,25 @@
+.Result {
+  margin-bottom: 56px;
+  background-color: var(--colors-gray-50);
+
+  @media (width >= 390px) {
+    margin-bottom: 120px;
+  }
+}
+
+.WrapperResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 120px;
+
+  @media (width >= 990px) {
+    flex-direction: row;
+  }
+}
+
+.TextResult {
+  text-align: center;
+}

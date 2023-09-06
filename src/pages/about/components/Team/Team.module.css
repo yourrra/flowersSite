@@ -1,0 +1,28 @@
+.Team {
+  margin-bottom: 72px;
+
+  @media (width >= 391px) {
+    margin-bottom: 120px;
+  }
+
+  @media (width >= 990px) {
+    max-width: 1190px;
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+}
+
+.CardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (width >= 391px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  }
+
+  @media (width >= 990px) {
+    grid-template-columns: repeat(auto-fit, minmax(385px, 1fr));
+  }
+}
