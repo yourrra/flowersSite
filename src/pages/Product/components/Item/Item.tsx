@@ -1,26 +1,44 @@
 import { Typography } from '@/components/Typography'
+import { CTA } from '@/components/CTA'
+import { useQuery } from '@tanstack/react-query'
+import { fetchItem } from '@/services/api'
+import { useParams } from 'react-router-dom'
 
 import styles from './Item.module.css'
 
 import flower from '../../../../assets/flower-two.jpg'
-import { CTA } from '@/components/CTA'
 
 export const Item = () => {
+  const { id }: any = useParams()
+
+  const { data, isLoading, isError, error }: any = useQuery({
+    queryKey: ['item', id],
+    queryFn: () => fetchItem(id),
+  })
+
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
+
   return (
     <section className={styles.Wrapper}>
       <div className={styles.Item}>
         <div>
-          <img src={flower} alt={flower} className={styles.Img} />
+          <img src={data.image} alt={flower} className={styles.Img} />
         </div>
         <div>
           <Typography tag="h1" variant="h1" className={styles.Name}>
-            Orange Rose España 70 cm
+            {data.name}
           </Typography>
           <div className={styles.Price}>
             <Typography variant="h3" className={styles.PriceOld}>
-              $1024.99
+              {data.price}
             </Typography>
-            <Typography variant="h2-extra">$1024.99</Typography>
+            <Typography variant="h2-extra">{data.price}</Typography>
           </div>
           <div className={styles.Info}>
             <div>
@@ -36,7 +54,7 @@ export const Item = () => {
                 Categories:
               </Typography>
               <Typography variant="link" className={styles.Text}>
-                Rose, Spain, Flowers
+                {data.category}
               </Typography>
             </div>
             <div>
