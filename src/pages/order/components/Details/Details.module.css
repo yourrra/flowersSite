@@ -1,0 +1,30 @@
+.Title {
+  margin-bottom: 40px;
+}
+
+.Details {
+  width: 100%;
+}
+
+.WrapperInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 24px;
+}
+
+.Couples {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  gap: 24px;
+
+  @media (width >= 391px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.Checkbox {
+  margin-bottom: 64px;
+}

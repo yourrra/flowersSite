@@ -1,0 +1,17 @@
+.Wrapper {
+  margin-bottom: 120px;
+}
+
+.Title {
+  margin-bottom: 80px;
+}
+
+.Forms {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media (width >= 990px) {
+    flex-direction: row;
+  }
+}

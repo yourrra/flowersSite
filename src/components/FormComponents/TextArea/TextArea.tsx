@@ -1,20 +1,28 @@
-import { type InputHTMLAttributes, memo, forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
+import { TextareaHTMLAttributes } from 'react'
 import { Label } from '../Label/Label'
 import cn from 'classnames'
 
-import styles from './Input.module.css'
+import styles from './TextArea.module.css'
 
 type Props = {
   label?: string
   id: string
   required?: boolean
   optionalStar?: boolean
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'id'>
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'id'>
 
-export const Input = memo(
-  forwardRef<HTMLInputElement, Props>(
+export const TextArea = memo(
+  forwardRef<HTMLTextAreaElement, Props>(
     (
-      { label, id, required, className = '', optionalStar, ...htmlInputProps },
+      {
+        label,
+        id,
+        required,
+        className = '',
+        optionalStar,
+        ...htmlTextAreaProps
+      },
       ref,
     ) => {
       return (
@@ -27,12 +35,12 @@ export const Input = memo(
               optionalStar={optionalStar}
             />
           )}
-          <input
+          <textarea
             placeholder={label}
             id={id}
-            className={cn(styles.Input, className)}
+            className={cn(styles.TextArea, className)}
             ref={ref}
-            {...htmlInputProps}
+            {...htmlTextAreaProps}
           />
         </div>
       )

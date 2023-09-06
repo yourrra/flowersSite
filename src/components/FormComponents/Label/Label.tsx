@@ -5,16 +5,23 @@ import styles from './Label.module.css'
 
 type Props = {
   label: ReactNode
+  optionalStar?: boolean
 } & LabelHTMLAttributes<HTMLLabelElement>
 
-export const Label = ({ id, label, ...htmlLabelProps }: Props) => {
+export const Label = ({
+  id,
+  label,
+  optionalStar,
+  ...htmlLabelProps
+}: Props) => {
   return (
     <label htmlFor={id} {...htmlLabelProps}>
       <Typography variant="label">
         {label}
         {htmlLabelProps['aria-required'] && (
-          <span className={styles.Star}>*</span>
+          <span className={styles.RedStar}>*</span>
         )}
+        {optionalStar && <span className={styles.GrayStar}>*</span>}
       </Typography>
     </label>
   )

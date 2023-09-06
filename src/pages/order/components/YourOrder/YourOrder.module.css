@@ -1,0 +1,45 @@
+.Title {
+  margin-bottom: 40px;
+}
+
+.YourOrder {
+  width: 100%;
+}
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 40px;
+}
+
+.WrapperTotal {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 24px;
+}
+
+.GrayBack {
+  background-color: var(--colors-gray-50);
+}
+
+.WhiteBack {
+  background-color: var(--colors-white);
+}
+
+.TotalGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.Total {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.GrayText {
+  color: var(--colors-gray-900);
+}
