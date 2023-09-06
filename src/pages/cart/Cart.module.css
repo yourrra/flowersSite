@@ -1,0 +1,27 @@
+.Wrapper {
+  margin-bottom: 120px;
+}
+
+.Title {
+  margin-bottom: 80px;
+}
+
+.ContentCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.Empty {
+  display: flex;
+  gap: 24px;
+}
+
+.ButtonLink {
+  color: var(--colors-white);
+
+  &:hover {
+    color: var(--colors-white);
+  }
+}

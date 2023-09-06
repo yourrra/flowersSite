@@ -2,6 +2,8 @@ import { Link } from '../Link'
 import * as URLS from '../../constants/urls'
 import { Logo } from '../Logo'
 import { useLocation } from 'react-router-dom'
+import { Menu } from '@/components/Menu'
+import { useState } from 'react'
 import cn from 'classnames'
 
 import phone from '../../assets/phone.svg'
@@ -11,8 +13,6 @@ import arrow from '../../assets/arrow-bl.svg'
 import map from '../../assets/map.svg'
 
 import styles from './Header.module.css'
-import { Menu } from '@/components/Menu'
-import { useState } from 'react'
 
 export function Header() {
   const { pathname } = useLocation()
