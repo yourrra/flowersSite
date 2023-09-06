@@ -3,17 +3,13 @@ import { Input } from '../FormComponents/Input'
 
 import styles from './Subscribe.module.css'
 
-type Props = {
-  id: string
-}
-
-export function Subscribe({ id }: Props) {
+export function Subscribe() {
   return (
     <form className={styles.Wrapper}>
       <Input
         className={styles.Input}
         placeholder="E-mail"
-        id={id}
+        id="subscribe-form"
         type="email"
         inputMode="email"
         name="email"
