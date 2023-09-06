@@ -5,10 +5,10 @@ import { fetchItems } from '@/services/api'
 
 import styles from './Items.module.css'
 
-import arrow from '../../../../assets/arrow-bl.svg'
+import arrow from '@/assets/arrow-bl.svg'
 
 export const Items = () => {
-  const { data, isLoading, isError, error }: any = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['items'],
     queryFn: fetchItems,
   })
@@ -18,7 +18,7 @@ export const Items = () => {
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>
+    return <span>Error: {(error as Error).message}</span>
   }
 
   return (
@@ -44,7 +44,7 @@ export const Items = () => {
         </div>
       </div>
       <div className={styles.Cards}>
-        {data.map((item: any) => (
+        {data.map(item => (
           <Card
             key={item.id}
             title={item.name}
