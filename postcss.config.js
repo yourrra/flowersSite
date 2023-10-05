@@ -1,5 +1,5 @@
 export default {
-    plugins: {
-      'postcss-nested': {},
-    },
-  }
+  plugins: {
+    'postcss-nested': {},
+  },
+}

@@ -35,6 +35,7 @@ export const Item = () => {
             {data.name}
           </Typography>
           <div className={styles.Price}>
+            s
             <Typography variant="h3" className={styles.PriceOld}>
               {data.price}
             </Typography>
