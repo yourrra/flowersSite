@@ -1,0 +1,33 @@
+.Wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0;
+  border-top: 1px solid var(--colors-gray-600);
+  border-bottom: 1px solid var(--colors-gray-600);
+  gap: 24px;
+}
+
+.Img {
+  max-width: 150px;
+}
+
+.Name {
+  font-weight: 500;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Quantity {
+  display: flex;
+  padding: 10px 16px;
+  border: 1px solid var(--colors-gray-600);
+  gap: 56px;
+}
+
+.Button {
+  cursor: pointer;
+}

@@ -28,7 +28,7 @@ export function Card({ img, price, title, id }: Props) {
             {title}
           </Typography>
           <Typography className={styles.Price} variant="label">
-            {price}
+            ${price}
           </Typography>
           <div className={styles.ButtonWrapper}>
             <button type="button" className={styles.Button}>

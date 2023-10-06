@@ -3,18 +3,26 @@ import { CTA } from '@/components/CTA'
 import { useQuery } from '@tanstack/react-query'
 import { fetchItem } from '@/services/api'
 import { useParams } from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
+import cartStore from '@/stores/CartStore'
 
 import styles from './Item.module.css'
 
 import flower from '../../../../assets/flower-two.jpg'
 
-export const Item = () => {
+export const Item = observer(() => {
   const { id } = useParams()
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['item', id],
     queryFn: () => fetchItem(id || ''),
   })
+
+  const handleAddToCart = () => {
+    if (data) {
+      cartStore.addProduct(id, data.name, data.price)
+    }
+  }
 
   if (isLoading) {
     return <span>Loading...</span>
@@ -35,11 +43,10 @@ export const Item = () => {
             {data.name}
           </Typography>
           <div className={styles.Price}>
-            s
             <Typography variant="h3" className={styles.PriceOld}>
-              {data.price}
+              ${data.price}
             </Typography>
-            <Typography variant="h2-extra">{data.price}</Typography>
+            <Typography variant="h2-extra">${data.price}</Typography>
           </div>
           <div className={styles.Info}>
             <div>
@@ -75,9 +82,9 @@ export const Item = () => {
             of a great group. Only here longing and passion turned into
             something brighter - into real joy
           </div>
-          <CTA />
+          <CTA handleAddToCart={handleAddToCart} />
         </div>
       </div>
     </section>
   )
-}
+})

@@ -7,7 +7,11 @@ import styles from './CTA.module.css'
 import minus from '@/assets/minus.svg'
 import plus from '@/assets/plus.svg'
 
-export const CTA = memo(() => {
+type Props = {
+  handleAddToCart: () => void
+}
+
+export const CTA = memo(({ handleAddToCart }: Props) => {
   const [count, setCount] = useState(0)
 
   const handleDecrement = () => {
@@ -39,7 +43,7 @@ export const CTA = memo(() => {
           <img src={plus} alt="plus" />
         </button>
       </div>
-      <Button variant="red" type="button">
+      <Button variant="red" type="button" onClick={handleAddToCart}>
         ADD TO CART
       </Button>
     </div>
