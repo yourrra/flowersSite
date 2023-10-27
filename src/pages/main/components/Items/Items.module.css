@@ -13,6 +13,10 @@
   gap: 24px;
 }
 
+.isActiveButton {
+  color: var(--colors-blue-700);
+}
+
 .Button {
   all: unset;
   cursor: pointer;
@@ -20,6 +24,27 @@
 
   &:hover {
     color: var(--colors-blue-700);
+  }
+}
+
+.Button:disabled {
+  display: none;
+}
+
+.isActiveSorting {
+  background-color: var(--colors-blue-700);
+  color: var(--colors-white);
+}
+
+.Sorting {
+  padding: 2px;
+  border: 1px solid var(--colors-blue-700);
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--colors-blue-700);
+    color: var(--colors-white);
   }
 }
 
@@ -31,7 +56,7 @@
   display: grid;
   margin-bottom: 48px;
   gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
 }
 
 .ShowMore {

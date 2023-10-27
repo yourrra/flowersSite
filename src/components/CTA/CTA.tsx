@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { memo, useState } from 'react'
+import { useState } from 'react'
 import { Typography } from '../Typography'
 
 import styles from './CTA.module.css'
@@ -9,9 +9,10 @@ import plus from '@/assets/plus.svg'
 
 type Props = {
   handleAddToCart: () => void
+  quantity: (number | undefined)[]
 }
 
-export const CTA = memo(({ handleAddToCart }: Props) => {
+export const CTA = ({ handleAddToCart, quantity }: Props) => {
   const [count, setCount] = useState(0)
 
   const handleDecrement = () => {
@@ -34,7 +35,7 @@ export const CTA = memo(({ handleAddToCart }: Props) => {
         >
           <img src={minus} alt="minus" />
         </button>
-        <Typography variant="h3">{count}</Typography>
+        <Typography variant="h3">{quantity}</Typography>
         <button
           type="button"
           className={styles.Button}
@@ -48,4 +49,4 @@ export const CTA = memo(({ handleAddToCart }: Props) => {
       </Button>
     </div>
   )
-})
+}

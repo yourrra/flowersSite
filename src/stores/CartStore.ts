@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx'
 
 export interface CartItem {
   id: string
+  image: string
   name: string
   price: number
   quantity: number
@@ -14,7 +15,7 @@ class CartStore {
     makeAutoObservable(this)
   }
 
-  addProduct(id: string, name: string, price: number) {
+  addProduct(id: string, name: string, price: number, image: string) {
     const existingItem = this.cartItems.find(item => item.id === id)
     console.log('+')
 
@@ -26,6 +27,7 @@ class CartStore {
         name,
         price,
         quantity: 1,
+        image,
       })
     }
   }

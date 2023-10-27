@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchItem } from '@/services/api'
 import { useParams } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import cartStore from '@/stores/CartStore'
+import cartStore, { CartItem } from '@/stores/CartStore'
 
 import styles from './Item.module.css'
 
@@ -20,9 +20,17 @@ export const Item = observer(() => {
 
   const handleAddToCart = () => {
     if (data) {
-      cartStore.addProduct(id, data.name, data.price)
+      cartStore.addProduct(id, data.name, data.price, data.image)
     }
   }
+
+  const cartItems: CartItem[] = cartStore.getCartItems()
+
+  const quantity = cartItems.map(item => {
+    if (id === item.id) {
+      return item.quantity
+    }
+  })
 
   if (isLoading) {
     return <span>Loading...</span>
@@ -54,7 +62,7 @@ export const Item = observer(() => {
                 delivery date:
               </Typography>
               <Typography variant="link" className={styles.Text}>
-                Tomorrow 12:15 - 12:45
+                Tomorrow 12:15 - 12:45, {data.deliveryDate}
               </Typography>
             </div>
             <div>
@@ -70,19 +78,12 @@ export const Item = observer(() => {
                 Product Code:
               </Typography>
               <Typography variant="link" className={styles.Text}>
-                010140
+                {data.code}
               </Typography>
             </div>
           </div>
-          <div className={styles.Description}>
-            Orange Rose Espana 70 cm involuntarily attracts the eye. And the
-            reason for this is its color - bright and joyful. This is one of the
-            newest varieties of roses, bred by crossing two flowers - red and
-            yellow. Espana has absorbed the meaning of these two representatives
-            of a great group. Only here longing and passion turned into
-            something brighter - into real joy
-          </div>
-          <CTA handleAddToCart={handleAddToCart} />
+          <div className={styles.Description}>{data.description}</div>
+          <CTA handleAddToCart={handleAddToCart} quantity={quantity} />
         </div>
       </div>
     </section>

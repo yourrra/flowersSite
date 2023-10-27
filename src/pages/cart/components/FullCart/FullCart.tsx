@@ -8,14 +8,14 @@ import styles from './FullCart.module.css'
 import flower from '@/assets/flower-one.jpg'
 
 export const FullCart = observer(() => {
-  const prod = [
-    {
-      name: 'Orange Rose España 70 cm',
-      price: 98.98,
-      img: flower,
-      quantity: 2,
-    },
-  ]
+  // const prod = [
+  //   {
+  //     name: 'Orange Rose España 70 cm',
+  //     price: 98.98,
+  //     img: flower,
+  //     quantity: 2,
+  //   },
+  // ]
 
   const cartItems: CartItem[] = cartStore.getCartItems()
 
@@ -28,11 +28,11 @@ export const FullCart = observer(() => {
           name={item.name}
           price={item.price}
           quantity={item.quantity}
-          img={item.img}
+          img={item.image}
           id={item.id}
         />
       ))}
-      {prod.map(item => (
+      {/* {prod.map(item => (
         <OrderCard
           key={item.id}
           id={item.id}
@@ -41,7 +41,7 @@ export const FullCart = observer(() => {
           quantity={item.quantity}
           img={item.img}
         />
-      ))}
+      ))} */}
     </div>
   )
 })
