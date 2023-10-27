@@ -1,6 +1,7 @@
 import { Button } from '../Button'
-import { useState } from 'react'
 import { Typography } from '../Typography'
+import { observer } from 'mobx-react-lite'
+import cartStore from '@/stores/CartStore'
 
 import styles from './CTA.module.css'
 
@@ -9,29 +10,26 @@ import plus from '@/assets/plus.svg'
 
 type Props = {
   handleAddToCart: () => void
-  quantity: (number | undefined)[]
+  quantity: number
+  id: string
 }
 
-export const CTA = ({ handleAddToCart, quantity }: Props) => {
-  const [count, setCount] = useState(0)
+const handleIncrementQuantity = (id: string) => {
+  cartStore.incrementQuantity(id)
+}
 
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1)
-    }
-  }
+const handleDecrementQuantity = (id: string) => {
+  cartStore.decrementQuantity(id)
+}
 
-  const handleIncrement = () => {
-    setCount(count + 1)
-  }
-
+export const CTA = observer(({ handleAddToCart, quantity, id }: Props) => {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Counter}>
         <button
           type="button"
           className={styles.Button}
-          onClick={handleDecrement}
+          onClick={() => handleDecrementQuantity(id)}
         >
           <img src={minus} alt="minus" />
         </button>
@@ -39,7 +37,7 @@ export const CTA = ({ handleAddToCart, quantity }: Props) => {
         <button
           type="button"
           className={styles.Button}
-          onClick={handleIncrement}
+          onClick={() => handleIncrementQuantity(id)}
         >
           <img src={plus} alt="plus" />
         </button>
@@ -49,4 +47,4 @@ export const CTA = ({ handleAddToCart, quantity }: Props) => {
       </Button>
     </div>
   )
-}
+})
