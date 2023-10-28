@@ -65,22 +65,6 @@ class CartStore {
   getCartItems() {
     return this.cartItems
   }
-
-  //   addProduct(product) {
-  //     this.products.push(product)
-  //     this.calculateTotal()
-  //     console.log('+')
-  //   }
-
-  //   removeProduct(index) {
-  //     this.products.splice(index, 1)
-  //     this.calculateTotal()
-  //     console.log('-')
-  //   }
-
-  //   calculateTotal() {
-  //     this.total = this.products.reduce((sum, product) => sum + product.price, 0)
-  //   }
 }
 
 const cartStore = new CartStore()

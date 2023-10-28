@@ -12,7 +12,7 @@ button {
   cursor: pointer;
 }
 
-.SelectTrigger[data-placeholder] {
+.isBlue {
   color: var(--colors-blue-700);
 }
 

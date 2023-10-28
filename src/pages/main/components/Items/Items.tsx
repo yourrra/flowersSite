@@ -8,6 +8,7 @@ import cn from 'classnames'
 import styles from './Items.module.css'
 
 import arrow from '@/assets/arrow-bl.svg'
+import { Select } from '@/components/Select'
 
 export const Items = () => {
   const [visibleItems, setVisibleItems] = useState(15)
@@ -122,6 +123,16 @@ export const Items = () => {
             </Typography>
           </button>
         </div>
+        <Select
+          label={'Sort'}
+          options={[
+            { id: 1, value: 'popular' },
+            { id: 2, value: 'price-up' },
+            { id: 3, value: 'price-down' },
+            { id: 4, value: 'A-Z' },
+            { id: 5, value: 'Z-A' },
+          ]}
+        />
         <button
           className={cn(styles.Sorting, {
             [styles.isActiveSorting]: sort === 'popular',

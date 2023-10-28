@@ -1,8 +1,8 @@
 import { Typography } from '@/components/Typography'
-
-import styles from './YourOrder.module.css'
 import { RadioGroup } from '@/components/RadioGroup'
 import { Button } from '@/components/Button'
+
+import styles from './YourOrder.module.css'
 
 export const YourOrder = () => {
   return (
