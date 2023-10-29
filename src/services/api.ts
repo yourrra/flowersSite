@@ -11,7 +11,7 @@ export const ENDPOINT = {
 
 //${'?category=Health'}
 
-export interface Items {
+export interface Item {
   id: string
   name: string
   image: string
@@ -27,7 +27,7 @@ export interface Items {
 //   items: Items[]
 // }
 
-export async function fetchItems(selectedCategory: string): Promise<Items[]> {
+export async function fetchItems(selectedCategory: string): Promise<Item[]> {
   try {
     const response = await fetch(
       `${API_2}${ENDPOINT.ITEMS()}${
@@ -43,7 +43,7 @@ export async function fetchItems(selectedCategory: string): Promise<Items[]> {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Items[] = await response.json()
+    const data: Item[] = await response.json()
     return data
   } catch (e) {
     console.error(e)
@@ -51,13 +51,13 @@ export async function fetchItems(selectedCategory: string): Promise<Items[]> {
   }
 }
 
-export async function fetchItem(id: string): Promise<Items> {
+export async function fetchItem(id: string): Promise<Item> {
   try {
     const response = await fetch(`${API_2}${ENDPOINT.ITEM(id)}`)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Items = await response.json()
+    const data: Item = await response.json()
     return data
     // return response.json()
   } catch (e) {
@@ -66,7 +66,7 @@ export async function fetchItem(id: string): Promise<Items> {
   }
 }
 
-export async function fetchGifts(): Promise<Items[]> {
+export async function fetchGifts(): Promise<Item[]> {
   try {
     const response = await fetch(
       `${API_2}${ENDPOINT.ITEMS()}${ENDPOINT.GIFTS()}`,
@@ -74,7 +74,7 @@ export async function fetchGifts(): Promise<Items[]> {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Items[] = await response.json()
+    const data: Item[] = await response.json()
     return data
   } catch (e) {
     console.error(e)
