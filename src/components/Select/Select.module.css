@@ -46,3 +46,7 @@ button {
   color: var(--colors-blue-700);
   outline: none;
 }
+
+.Text {
+  font-weight: 500;
+}

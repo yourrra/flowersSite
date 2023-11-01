@@ -1,21 +1,6 @@
 import { makeAutoObservable } from 'mobx'
-import { useQuery } from '@tanstack/react-query'
 import { fetchItems } from '@/services/api'
-import { Item } from '@/services/api'
-
-interface ItemStore {
-  data: Item[]
-  sortedData: Item[]
-  visibleItems: number
-  selectedCategory: string
-  sort: string
-
-  fetchData: () => void
-  setShowMore: () => void
-  filterItems: (category: string) => void
-  setSort: (selectedSort: string) => void
-  sortItems: (selectedSort: string) => Item[]
-}
+import { Item } from '@/type/item'
 
 class ItemStore {
   data: Item[] = []
@@ -28,48 +13,43 @@ class ItemStore {
     makeAutoObservable(this)
   }
 
-  fetchData = () => {
-    const { data, isLoading, isError, error } = useQuery<Item[]>({
-      queryKey: ['items', this.selectedCategory],
-      queryFn: () => fetchItems(this.selectedCategory),
-    })
-
-    // if (isLoading) {
-    // }
-
-    // if (isError) {
-    // }
-
-    this.data = data || []
+  async fetchData() {
+    try {
+      const response = await fetchItems(this.selectedCategory)
+      this.data = response
+      this.sortedData = this.sortItems(this.sort)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
   }
 
-  setShowMore = () => {
+  setShowMore() {
     if (this.visibleItems < this.data.length) {
       this.visibleItems += 15
     }
   }
 
-  filterItems = (category: string) => {
+  filterItems(category: string) {
     this.selectedCategory = category
     this.visibleItems = 15
     this.fetchData()
   }
 
-  setSort = (selectedSort: string) => {
+  setSort(selectedSort: string) {
     this.sort = selectedSort
     this.sortedData = this.sortItems(this.sort)
   }
 
-  sortItems = (selectedSort: string) => {
+  sortItems(selectedSort: string) {
     const sortedData = [...this.data]
     sortedData.sort((a, b) => {
-      if (selectedSort === 'price-up') {
+      if (selectedSort === 'priceHigh') {
         return parseFloat(b.price) - parseFloat(a.price)
-      } else if (selectedSort === 'price-down') {
+      } else if (selectedSort === 'priceLow') {
         return parseFloat(a.price) - parseFloat(b.price)
-      } else if (selectedSort === 'A-Z') {
+      } else if (selectedSort === 'a-z') {
         return a.name.localeCompare(b.name)
-      } else if (selectedSort === 'Z-A') {
+      } else if (selectedSort === 'z-a') {
         return b.name.localeCompare(a.name)
       } else {
         return parseFloat(a.rating) - parseFloat(b.rating)

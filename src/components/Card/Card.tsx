@@ -8,10 +8,9 @@ type Props = {
   price: string
   title: string
   id: string
-  rating: string
 }
 
-export function Card({ img, price, title, id, rating }: Props) {
+export function Card({ img, price, title, id }: Props) {
   return (
     <Link
       type="link"
@@ -26,7 +25,7 @@ export function Card({ img, price, title, id, rating }: Props) {
         {/* <Picture img={img} alt={img} /> */}
         <div className={styles.TextBlock}>
           <Typography className={styles.Text} variant="normal">
-            {title}, {rating}
+            {title}
           </Typography>
           <Typography className={styles.Price} variant="label">
             ${price}

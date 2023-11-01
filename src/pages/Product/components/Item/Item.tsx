@@ -83,11 +83,7 @@ export const Item = observer(() => {
             </div>
           </div>
           <div className={styles.Description}>{data.description}</div>
-          <CTA
-            handleAddToCart={handleAddToCart}
-            quantity={quantity | 0}
-            id={id}
-          />
+          <CTA handleAddToCart={handleAddToCart} quantity={quantity} id={id} />
         </div>
       </div>
     </section>

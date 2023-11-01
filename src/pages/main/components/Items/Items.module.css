@@ -36,22 +36,6 @@
   color: var(--colors-white);
 }
 
-.Sorting {
-  padding: 2px;
-  border: 1px solid var(--colors-blue-700);
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--colors-blue-700);
-    color: var(--colors-white);
-  }
-}
-
-.Select {
-  display: flex;
-}
-
 .Cards {
   display: grid;
   margin-bottom: 48px;

@@ -1,5 +1,6 @@
 const API = 'https://juniper-ringed-value.glitch.me'
 const API_2 = 'https://65399ecde3b530c8d9e88c88.mockapi.io'
+import { Item } from '@/type/item'
 
 export const ENDPOINT = {
   ITEMS: () => '/product', // '/items'
@@ -10,18 +11,6 @@ export const ENDPOINT = {
 }
 
 //${'?category=Health'}
-
-export interface Item {
-  id: string
-  name: string
-  image: string
-  price: string
-  category: string
-  code: string
-  description: string
-  deliveryDate: string
-  rating: string
-}
 
 // interface ApiResponse {
 //   items: Items[]

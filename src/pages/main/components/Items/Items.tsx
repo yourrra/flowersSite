@@ -1,66 +1,29 @@
-import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import { useEffect } from 'react'
+import itemStore from '@/stores/ItemStore'
 import { Card } from '@/components/Card'
+import { Select } from '@/components/Select'
 import { Typography } from '@/components/Typography'
-import { useQuery } from '@tanstack/react-query'
-import { fetchItems } from '@/services/api'
 import cn from 'classnames'
 
 import styles from './Items.module.css'
 
 import arrow from '@/assets/arrow-bl.svg'
-import { Select } from '@/components/Select'
 
-export const Items = () => {
-  const [visibleItems, setVisibleItems] = useState(15)
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [sort, setSort] = useState('popular')
-
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['items', selectedCategory],
-    queryFn: () => fetchItems(selectedCategory),
-  })
-
-  if (isLoading) {
-    return <span>Loading...</span>
-  }
-
-  if (isError) {
-    return <span>Error: {(error as Error).message}</span>
-  }
+export const Items = observer(() => {
+  const { data, visibleItems, selectedCategory, sortedData } = itemStore
 
   const showMore = () => {
-    if (visibleItems < data.length)
-      setVisibleItems(prevVisibleItems => prevVisibleItems + 15)
+    itemStore.setShowMore()
   }
 
   const filterItems = (category: string) => {
-    setSelectedCategory(category)
-    setVisibleItems(15)
+    itemStore.filterItems(category)
   }
 
-  const toggleSortOrder = (currentSort: string) => {
-    setSort(currentSort)
-  }
-
-  const sortItems = () => {
-    const sortedData = [...data]
-    sortedData.sort((a, b) => {
-      if (sort === 'price-up') {
-        return parseFloat(b.price) - parseFloat(a.price)
-      } else if (sort === 'price-down') {
-        return parseFloat(a.price) - parseFloat(b.price)
-      } else if (sort === 'A-Z') {
-        return a.name.localeCompare(b.name)
-      } else if (sort === 'Z-A') {
-        return b.name.localeCompare(a.name)
-      } else {
-        return parseFloat(a.rating) - parseFloat(b.rating)
-      }
-    })
-    return sortedData
-  }
-
-  const sortedData = sortItems()
+  useEffect(() => {
+    itemStore.fetchData()
+  }, [])
 
   return (
     <section className={styles.Wrapper}>
@@ -126,57 +89,25 @@ export const Items = () => {
         <Select
           label={'Sort'}
           options={[
-            { id: 1, value: 'popular' },
-            { id: 2, value: 'price-up' },
-            { id: 3, value: 'price-down' },
-            { id: 4, value: 'A-Z' },
-            { id: 5, value: 'Z-A' },
+            {
+              id: 1,
+              value: 'bestSelling',
+              name: 'Best selling',
+            },
+            { id: 2, value: 'a-z', name: 'A-Z' },
+            { id: 3, value: 'z-a', name: 'Z-A' },
+            {
+              id: 4,
+              value: 'priceLow',
+              name: 'Price, low to high',
+            },
+            {
+              id: 5,
+              value: 'priceHigh',
+              name: 'Price, high to low',
+            },
           ]}
         />
-        <button
-          className={cn(styles.Sorting, {
-            [styles.isActiveSorting]: sort === 'popular',
-          })}
-          onClick={() => toggleSortOrder('popular')}
-        >
-          popular
-        </button>
-        <button
-          className={cn(styles.Sorting, {
-            [styles.isActiveSorting]: sort === 'price-up',
-          })}
-          onClick={() => toggleSortOrder('price-up')}
-        >
-          price-up
-        </button>
-        <button
-          className={cn(styles.Sorting, {
-            [styles.isActiveSorting]: sort === 'price-down',
-          })}
-          onClick={() => toggleSortOrder('price-down')}
-        >
-          price-down
-        </button>
-        <button
-          className={cn(styles.Sorting, {
-            [styles.isActiveSorting]: sort === 'A-Z',
-          })}
-          onClick={() => toggleSortOrder('A-Z')}
-        >
-          A-Z
-        </button>
-        <button
-          className={cn(styles.Sorting, {
-            [styles.isActiveSorting]: sort === 'Z-A',
-          })}
-          onClick={() => toggleSortOrder('Z-A')}
-        >
-          Z-A
-        </button>
-        <div className={styles.Select}>
-          <div>Sort</div>
-          <img src={arrow} alt="arrow" />
-        </div>
       </div>
       <div className={styles.Cards}>
         {sortedData.slice(0, visibleItems).map(item => (
@@ -186,7 +117,6 @@ export const Items = () => {
             price={item.price}
             img={item.image}
             id={item.id}
-            rating={item.rating}
           />
         ))}
       </div>
@@ -195,11 +125,11 @@ export const Items = () => {
           type="button"
           className={styles.Button}
           onClick={showMore}
-          disabled={visibleItems > data.length}
+          disabled={visibleItems >= data.length}
         >
           Show more
         </button>
       </div>
     </section>
   )
-}
+})
