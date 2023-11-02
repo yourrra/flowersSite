@@ -12,7 +12,12 @@
 }
 
 .Name {
+  width: 120px;
   font-weight: 500;
+
+  @media (width >= 450px) {
+    font-size: 18px;
+  }
 }
 
 .Info {

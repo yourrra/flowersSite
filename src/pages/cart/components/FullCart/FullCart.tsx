@@ -15,16 +15,18 @@ export const FullCart = observer(() => {
       <Typography variant="h2" className={styles.Title}>
         Your order
       </Typography>
-      {cartStore.cartItems.map(item => (
-        <OrderCard
-          key={item.id}
-          name={item.name}
-          price={item.price}
-          quantity={item.quantity}
-          img={item.image}
-          id={item.id}
-        />
-      ))}
+      <div className={styles.OrderList}>
+        {cartStore.cartItems.map(item => (
+          <OrderCard
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            quantity={item.quantity}
+            img={item.image}
+            id={item.id}
+          />
+        ))}
+      </div>
     </div>
   )
 })

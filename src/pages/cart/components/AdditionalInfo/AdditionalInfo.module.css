@@ -1,0 +1,23 @@
+.Title {
+  margin-bottom: 40px;
+}
+
+.TextArea {
+  margin-bottom: 32px;
+}
+
+.Checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Total {
+  padding: 12px 0;
+  margin-bottom: 8px;
+}
+
+.Description {
+  margin-bottom: 24px;
+  color: var(--colors-gray-900);
+}

@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite'
 import cartStore from '@/stores/CartStore'
 
 import styles from './Cart.module.css'
+import { AdditionalInfo } from './components/AdditionalInfo'
 
 export const Cart = observer(() => {
   return (
@@ -15,6 +16,7 @@ export const Cart = observer(() => {
           Cart
         </Typography>
         {cartStore.cartItems.length > 0 ? <FullCart /> : <EmptyCart />}
+        {cartStore.cartItems.length > 0 ? <AdditionalInfo /> : ''}
       </div>
     </Layout>
   )

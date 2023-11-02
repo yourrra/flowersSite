@@ -64,7 +64,7 @@ export const Details = () => {
       <Typography variant="h2" className={styles.Title}>
         Additional information
       </Typography>
-      <TextArea label={'Email address'} id={'t1'} maxLength={1000} />
+      <TextArea label={'Order notes'} id={'t1'} maxLength={1000} />
     </section>
   )
 }
