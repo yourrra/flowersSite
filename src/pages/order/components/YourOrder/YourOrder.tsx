@@ -48,7 +48,9 @@ export const YourOrder = () => {
                 />
               </fieldset>
               <hr />
-              <Button variant="red">Order</Button>
+              <div>
+                <Button variant="red">Order</Button>
+              </div>
             </div>
           </div>
         </div>
