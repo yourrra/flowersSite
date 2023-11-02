@@ -19,6 +19,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (width >= 450px) {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .Quantity {
@@ -26,6 +33,19 @@
   padding: 10px 16px;
   border: 1px solid var(--colors-gray-600);
   gap: 56px;
+}
+
+.PriceBlock {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+
+  @media (width >= 450px) {
+    flex-direction: column-reverse;
+    align-content: space-between;
+    align-items: flex-end;
+    order: 1;
+  }
 }
 
 .Button {

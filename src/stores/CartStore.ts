@@ -17,7 +17,6 @@ class CartStore {
 
   addProduct(id: string, name: string, price: number, image: string) {
     const existingItem = this.cartItems.find(item => item.id === id)
-    console.log('+')
 
     if (existingItem) {
       existingItem.quantity += 1
