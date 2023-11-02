@@ -1,6 +1,6 @@
 const API = 'https://juniper-ringed-value.glitch.me'
 const API_2 = 'https://65399ecde3b530c8d9e88c88.mockapi.io'
-import { Item } from '@/type/item'
+import { UItem } from '@/type/item'
 
 export const ENDPOINT = {
   ITEMS: () => '/product', // '/items'
@@ -16,7 +16,7 @@ export const ENDPOINT = {
 //   items: Items[]
 // }
 
-export async function fetchItems(selectedCategory: string): Promise<Item[]> {
+export async function fetchItems(selectedCategory: string): Promise<UItem[]> {
   try {
     const response = await fetch(
       `${API_2}${ENDPOINT.ITEMS()}${
@@ -26,13 +26,15 @@ export async function fetchItems(selectedCategory: string): Promise<Item[]> {
           ? ENDPOINT.ROSES()
           : selectedCategory === 'occasion'
           ? ENDPOINT.OCCASION()
-          : ''
+          : selectedCategory === 'all'
+          ? ''
+          : `?category=${selectedCategory}`
       }`,
     )
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Item[] = await response.json()
+    const data: UItem[] = await response.json()
     return data
   } catch (e) {
     console.error(e)
@@ -40,13 +42,13 @@ export async function fetchItems(selectedCategory: string): Promise<Item[]> {
   }
 }
 
-export async function fetchItem(id: string): Promise<Item> {
+export async function fetchItem(id: string): Promise<UItem> {
   try {
     const response = await fetch(`${API_2}${ENDPOINT.ITEM(id)}`)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Item = await response.json()
+    const data: UItem = await response.json()
     return data
     // return response.json()
   } catch (e) {
@@ -55,7 +57,7 @@ export async function fetchItem(id: string): Promise<Item> {
   }
 }
 
-export async function fetchGifts(): Promise<Item[]> {
+export async function fetchGifts(): Promise<UItem[]> {
   try {
     const response = await fetch(
       `${API_2}${ENDPOINT.ITEMS()}${ENDPOINT.GIFTS()}`,
@@ -63,7 +65,7 @@ export async function fetchGifts(): Promise<Item[]> {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const data: Item[] = await response.json()
+    const data: UItem[] = await response.json()
     return data
   } catch (e) {
     console.error(e)

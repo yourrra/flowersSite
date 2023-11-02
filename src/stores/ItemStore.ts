@@ -1,10 +1,10 @@
 import { makeAutoObservable } from 'mobx'
 import { fetchItems } from '@/services/api'
-import { Item } from '@/type/item'
+import { UItem } from '@/type/item'
 
 class ItemStore {
-  data: Item[] = []
-  sortedData: Item[] = []
+  data: UItem[] = []
+  sortedData: UItem[] = []
   visibleItems = 15
   selectedCategory = 'all'
   sort = 'bestSelling'

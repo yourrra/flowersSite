@@ -18,6 +18,10 @@
   }
 }
 
+.Button:disabled {
+  display: none;
+}
+
 .Cards {
   display: grid;
   margin-bottom: 48px;

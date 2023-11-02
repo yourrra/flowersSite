@@ -1,4 +1,4 @@
-export interface Item {
+export interface UItem {
   id: string
   name: string
   image: string

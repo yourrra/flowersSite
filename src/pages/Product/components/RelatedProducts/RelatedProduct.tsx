@@ -1,43 +1,36 @@
 import { Card } from '@/components/Card'
 import { Typography } from '@/components/Typography'
+import { useQuery } from '@tanstack/react-query'
+import { fetchItems } from '@/services/api'
 
 import styles from './RelatedProduct.module.css'
 
 import flower from '../../../../assets/flower-one.jpg'
+import { useState } from 'react'
 
-export const RelatedProduct = () => {
-  const testItems = [
-    {
-      title: 'Flower1',
-      price: '300$',
-      img: flower,
-      id: '1',
-    },
-    {
-      title: 'Flower2',
-      price: '300$',
-      img: flower,
-      id: '2',
-    },
-    {
-      title: 'Flower3',
-      price: '300$',
-      img: flower,
-      id: '3',
-    },
-    {
-      title: 'Flower4',
-      price: '300$',
-      img: flower,
-      id: '4',
-    },
-    {
-      title: 'Flower5',
-      price: '300$',
-      img: flower,
-      id: '5',
-    },
-  ]
+type Props = {
+  selectedCategory: string
+}
+
+export const RelatedProduct = ({ selectedCategory }: Props) => {
+  const [visibleItems, setVisibleItems] = useState(5)
+  const { data, isLoading, isError, error, isSuccess } = useQuery({
+    queryKey: ['items', selectedCategory],
+    queryFn: () => fetchItems(selectedCategory),
+  })
+
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+
+  if (isError) {
+    return <span>Error: {(error as Error).message}</span>
+  }
+
+  const showMore = () => {
+    if (visibleItems < data.length)
+      setVisibleItems(prevVisibleItems => prevVisibleItems + 5)
+  }
 
   return (
     <section className={styles.Wrapper}>
@@ -45,12 +38,25 @@ export const RelatedProduct = () => {
         Related Products
       </Typography>
       <div className={styles.Cards}>
-        {testItems.map(e => (
-          <Card title={e.title} price={e.price} img={e.img} id={e.id} />
-        ))}
+        {isSuccess &&
+          data
+            .slice(0, visibleItems)
+            .map(item => (
+              <Card
+                title={item.name}
+                price={item.price}
+                img={item.image}
+                id={item.id}
+              />
+            ))}
       </div>
       <div className={styles.ShowMore}>
-        <button type="button" className={styles.Button}>
+        <button
+          type="button"
+          className={styles.Button}
+          onClick={showMore}
+          disabled={visibleItems >= data.length}
+        >
           Show more
         </button>
       </div>
