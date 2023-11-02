@@ -1,16 +1,31 @@
+import { observer } from 'mobx-react-lite'
 import { Link } from '../Link'
 import { Typography } from '../Typography'
 import styles from './Card.module.css'
 import * as URLS from '../../constants/urls'
+import { useState } from 'react'
+import cartStore from '@/stores/CartStore'
+import { UItem } from '@/type/item'
 
 type Props = {
   img: string
   price: string
   title: string
   id: string
+  data: UItem
 }
 
-export function Card({ img, price, title, id }: Props) {
+export const Card = observer(({ data, img, price, title, id }: Props) => {
+  const [isAddingCart, setIsAddingCart] = useState(false)
+
+  const handleAddToCart = (event: any) => {
+    if (data) {
+      cartStore.addProduct(data.id, data.name, data.price, data.image)
+    }
+    event.preventDefault()
+    setIsAddingCart(!isAddingCart)
+  }
+
   return (
     <Link
       type="link"
@@ -31,12 +46,34 @@ export function Card({ img, price, title, id }: Props) {
             ${price}
           </Typography>
           <div className={styles.ButtonWrapper}>
-            <button type="button" className={styles.Button}>
-              <Typography variant="label">ADD TO CART</Typography>
-            </button>
+            {isAddingCart ? (
+              <button type="button" className={styles.Button}>
+                <Typography variant="label">
+                  <Link
+                    type="link"
+                    props={{
+                      to: URLS.CART,
+                      className: styles.LinkCart,
+                    }}
+                  >
+                    GO TO CART
+                  </Link>
+                </Typography>
+              </button>
+            ) : (
+              <button
+                type="button"
+                className={styles.Button}
+                onClick={handleAddToCart}
+              >
+                <Typography variant="label" className={styles.ButtonAddCart}>
+                  ADD TO CART
+                </Typography>
+              </button>
+            )}
           </div>
         </div>
       </div>
     </Link>
   )
-}
+})

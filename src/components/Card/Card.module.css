@@ -1,5 +1,6 @@
 .Wrapper {
   .Price {
+    line-height: 24px;
     text-align: center;
   }
 
@@ -33,11 +34,18 @@
 
 .Button {
   all: unset;
+  background-color: var(--colors-white);
   color: var(--colors-blue-700);
+  cursor: pointer;
 }
 
 .Link {
   &:hover {
     color: var(--colors-dark);
   }
+}
+
+.ButtonAddCart {
+  font-size: 14px;
+  line-height: 24px;
 }

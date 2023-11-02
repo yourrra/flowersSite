@@ -117,6 +117,7 @@ export const Items = observer(() => {
             price={item.price}
             img={item.image}
             id={item.id}
+            data={item}
           />
         ))}
       </div>

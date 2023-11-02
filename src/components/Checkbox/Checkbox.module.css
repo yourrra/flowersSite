@@ -1,6 +1,7 @@
 /* reset */
 button {
   all: unset;
+  background-color: var(--colors-white);
 }
 
 .Checkbox,

@@ -2,11 +2,11 @@ import { Card } from '@/components/Card'
 import { Typography } from '@/components/Typography'
 import { useQuery } from '@tanstack/react-query'
 import { fetchItems } from '@/services/api'
+import { useState } from 'react'
 
 import styles from './RelatedProduct.module.css'
 
 import flower from '../../../../assets/flower-one.jpg'
-import { useState } from 'react'
 
 type Props = {
   selectedCategory: string
