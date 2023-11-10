@@ -7,6 +7,7 @@ import styles from './Input.module.css'
 type Props = {
   label?: string
   id: string
+  errors?: any
   required?: boolean
   optionalStar?: boolean
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'id'>
@@ -14,7 +15,15 @@ type Props = {
 export const Input = memo(
   forwardRef<HTMLInputElement, Props>(
     (
-      { label, id, required, className = '', optionalStar, ...htmlInputProps },
+      {
+        label,
+        errors,
+        id,
+        required,
+        className = '',
+        optionalStar,
+        ...htmlInputProps
+      },
       ref,
     ) => {
       return (
@@ -27,13 +36,21 @@ export const Input = memo(
               optionalStar={optionalStar}
             />
           )}
+
           <input
             placeholder={label}
             id={id}
-            className={cn(styles.Input, className)}
+            className={cn(
+              styles.Input,
+              {
+                [styles.isInputError]: errors,
+              },
+              className,
+            )}
             ref={ref}
             {...htmlInputProps}
           />
+          {errors && <p className={styles.Error}>{errors.message}</p>}
         </div>
       )
     },

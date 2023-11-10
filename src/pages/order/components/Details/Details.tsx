@@ -6,7 +6,7 @@ import { TextArea } from '@/components/FormComponents/TextArea'
 
 import styles from './Details.module.css'
 
-export const Details = () => {
+export const Details = ({ register, errors }) => {
   const [isChecked, setIsChecked] = useState(false)
 
   return (
@@ -17,37 +17,63 @@ export const Details = () => {
       <fieldset className={styles.WrapperInput}>
         <div className={styles.Couples}>
           <Input
+            {...register('firstName')}
             label={'First name'}
             id="n1"
             required
+            errors={errors.firstName}
             className={styles.Input}
           />
           <Input
+            {...register('lastName')}
             label={'Last name'}
             id="n2"
             required
+            errors={errors.lastName}
             className={styles.Input}
           />
         </div>
-        <Input label={'Company name'} id="n3" required />
-        <Input label={'Country'} id="c1" required />
-        <Input label={'Street address'} id="s1" required />
+        <Input
+          {...register('companyName')}
+          label={'Company name'}
+          id="n3"
+          required
+          errors={errors.companyName}
+        />
+        <Input
+          {...register('country')}
+          label={'Country'}
+          id="c1"
+          required
+          errors={errors.country}
+        />
+        <Input
+          {...register('streetAddress')}
+          label={'Street address'}
+          id="s1"
+          required
+          errors={errors.streetAddress}
+        />
         <div className={styles.Couples}>
           <Input
+            {...register('phoneNumber')}
             label={'Phone'}
             id="p1"
             optionalStar
             type="tel"
             inputMode="tel"
             autoComplete="phone"
+            errors={errors.phoneNumber}
           />
           <Input
+            {...register('email')}
             label={'Email address'}
             id="e1"
             optionalStar
             type="email"
             inputMode="email"
             autoComplete="email"
+            errors={errors.email}
           />
         </div>
       </fieldset>

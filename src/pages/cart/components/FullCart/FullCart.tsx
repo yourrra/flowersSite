@@ -5,8 +5,6 @@ import cartStore, { CartItem } from '@/stores/CartStore'
 
 import styles from './FullCart.module.css'
 
-import flower from '@/assets/flower-one.jpg'
-
 export const FullCart = observer(() => {
   const cartItems: CartItem[] = cartStore.getCartItems()
 

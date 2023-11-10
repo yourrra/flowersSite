@@ -1,10 +1,14 @@
 import { Typography } from '@/components/Typography'
 import { RadioGroup } from '@/components/RadioGroup'
 import { Button } from '@/components/Button'
+import { observer } from 'mobx-react-lite'
+import cartStore, { CartItem } from '@/stores/CartStore'
 
 import styles from './YourOrder.module.css'
 
-export const YourOrder = () => {
+export const YourOrder = observer(() => {
+  const cartItems: CartItem[] = cartStore.getCartItems()
+
   return (
     <section className={styles.YourOrder}>
       <Typography variant="h2" className={styles.Title}>
@@ -21,19 +25,23 @@ export const YourOrder = () => {
                 Total
               </Typography>
             </div>
-            <div className={styles.Total}>
-              <Typography variant="h3" className={styles.GrayText}>
-                Orange Rose España 70 cm × 1
-              </Typography>
-              <Typography variant="h3">$98.98</Typography>
-            </div>
+            {cartStore.cartItems.map(item => (
+              <div className={styles.Total}>
+                <Typography variant="h3" className={styles.GrayText}>
+                  {`${item.name} x ${item.quantity}`}
+                </Typography>
+                <Typography variant="h3">
+                  ${item.price * item.quantity}
+                </Typography>
+              </div>
+            ))}
             <div className={styles.Total}>
               <Typography variant="h3">Subtotal</Typography>
-              <Typography variant="h3">$98.98</Typography>
+              <Typography variant="h3">${cartStore.total}</Typography>
             </div>
             <div className={styles.Total}>
               <Typography variant="h3">Total</Typography>
-              <Typography variant="h3">$98.98</Typography>
+              <Typography variant="h3">${cartStore.total}</Typography>
             </div>
           </div>
           <div className={styles.WhiteBack}>
@@ -49,7 +57,9 @@ export const YourOrder = () => {
               </fieldset>
               <hr />
               <div>
-                <Button variant="red">Order</Button>
+                <Button variant="red" type="submit">
+                  Order
+                </Button>
               </div>
             </div>
           </div>
@@ -57,4 +67,4 @@ export const YourOrder = () => {
       </div>
     </section>
   )
-}
+})
