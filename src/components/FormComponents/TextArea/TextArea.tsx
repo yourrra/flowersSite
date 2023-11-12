@@ -10,6 +10,7 @@ type Props = {
   id: string
   required?: boolean
   optionalStar?: boolean
+  errors?: any
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'id'>
 
 export const TextArea = memo(
@@ -21,6 +22,7 @@ export const TextArea = memo(
         required,
         className = '',
         optionalStar,
+        errors,
         ...htmlTextAreaProps
       },
       ref,
@@ -38,10 +40,17 @@ export const TextArea = memo(
           <textarea
             placeholder={label}
             id={id}
-            className={cn(styles.TextArea, className)}
+            className={cn(
+              styles.TextArea,
+              {
+                [styles.isInputError]: errors,
+              },
+              className,
+            )}
             ref={ref}
             {...htmlTextAreaProps}
           />
+          {errors && <p className={styles.Error}>{errors.message}</p>}
         </div>
       )
     },

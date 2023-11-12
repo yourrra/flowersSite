@@ -9,6 +9,28 @@ import styles from './Details.module.css'
 export const Details = ({ register, errors }) => {
   const [isChecked, setIsChecked] = useState(false)
 
+  const phoneFormat = (phoneNumber: string, plus = false): string => {
+    const startsWith = plus ? '+7' : '8'
+
+    let phone = phoneNumber.replace(/[^0-9]/g, '')
+    if (phone.startsWith('7') && plus) {
+      phone = phone.substr(1)
+    }
+    if (phone.startsWith('8')) {
+      phone = phone.substr(1)
+    }
+
+    return phone.replace(
+      /(\d{3})(\d{3})(\d{2})(\d{2})/g,
+      `${startsWith} ($1) $2-$3-$4`,
+    )
+  }
+
+  const handlePhoneInputChange = e => {
+    const phoneNumber = e.target.value
+    e.target.value = phoneFormat(phoneNumber)
+  }
+
   return (
     <section className={styles.Details}>
       <Typography variant="h2" className={styles.Title}>
@@ -63,6 +85,7 @@ export const Details = ({ register, errors }) => {
             type="tel"
             inputMode="tel"
             autoComplete="phone"
+            onChange={handlePhoneInputChange}
             errors={errors.phoneNumber}
           />
           <Input
@@ -90,7 +113,12 @@ export const Details = ({ register, errors }) => {
       <Typography variant="h2" className={styles.Title}>
         Additional information
       </Typography>
-      <TextArea label={'Order notes'} id={'t1'} maxLength={1000} />
+      <TextArea
+        {...register('orderNotes')}
+        label={'Order notes'}
+        id={'t1'}
+        errors={errors.orderNotes}
+      />
     </section>
   )
 }
