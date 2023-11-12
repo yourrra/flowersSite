@@ -3,10 +3,16 @@ import { RadioGroup } from '@/components/RadioGroup'
 import { Button } from '@/components/Button'
 import { observer } from 'mobx-react-lite'
 import cartStore, { CartItem } from '@/stores/CartStore'
+import { FormState, UseFormReturn } from 'react-hook-form'
 
 import styles from './YourOrder.module.css'
 
-export const YourOrder = observer(() => {
+type Props = {
+  register: UseFormReturn<FormData>['register']
+  control: UseFormReturn<FormData>['control']
+}
+
+export const YourOrder = observer(({ control, register }: Props) => {
   const cartItems: CartItem[] = cartStore.getCartItems()
 
   return (
@@ -48,11 +54,14 @@ export const YourOrder = observer(() => {
             <div className={styles.WrapperTotal}>
               <fieldset className={styles.FieldSet}>
                 <RadioGroup
+                  {...register('payment')}
+                  name="payment"
                   group={[
                     { id: 'r1', label: 'Direct bank transfer', value: 'r1' },
                     { id: 'r2', label: 'Check payments', value: 'r2' },
                     { id: 'r3', label: 'Cash on delivery', value: 'r3' },
                   ]}
+                  control={control}
                 />
               </fieldset>
               <hr />

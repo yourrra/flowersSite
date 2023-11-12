@@ -12,14 +12,14 @@ class FormStore {
     email: '',
     createAccount: false,
     orderNotes: '',
-    payment: 'A',
+    payment: 'r2',
   }
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  updateField(fieldName: keyof FormData, value: string | boolean) {
+  updateField(fieldName: string, value: string | boolean) {
     this.data = {
       ...this.data,
       [fieldName]: value,
