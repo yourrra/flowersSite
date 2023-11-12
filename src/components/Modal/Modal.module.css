@@ -1,0 +1,56 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  animation: overlay-show 700ms ease-in-out;
+  backdrop-filter: blur(5px);
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.OverlayClose {
+  animation: overlay-close 300ms ease-in-out;
+}
+
+.Content {
+  padding: 25px 45px;
+  border-radius: 14px;
+  margin: 0 18px;
+  animation: content-show 450ms ease-out;
+  background-color: white;
+  box-shadow: var(--black-shadow);
+}
+
+.ContentClose {
+  animation: content-close 300ms ease-out;
+}
+
+.WrapperContent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@keyframes overlay-show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-close {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

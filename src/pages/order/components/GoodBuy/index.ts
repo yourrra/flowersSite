@@ -1,0 +1,1 @@
+export { GoodBuy } from './GoodBuy'

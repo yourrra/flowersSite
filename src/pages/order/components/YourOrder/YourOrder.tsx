@@ -3,7 +3,7 @@ import { RadioGroup } from '@/components/RadioGroup'
 import { Button } from '@/components/Button'
 import { observer } from 'mobx-react-lite'
 import cartStore, { CartItem } from '@/stores/CartStore'
-import { FormState, UseFormReturn } from 'react-hook-form'
+import { UseFormReturn } from 'react-hook-form'
 
 import styles from './YourOrder.module.css'
 

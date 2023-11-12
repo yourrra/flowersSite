@@ -5,14 +5,19 @@ import { Typography } from '@/components/Typography'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { schemaInput } from '@/schema/schemaInput'
+import { Modal } from '@/components/Modal'
+import { GoodBuy } from './components/GoodBuy'
+import { useState } from 'react'
 import formStore from '@/stores/FormStore'
 
 import styles from './Order.module.css'
 
-export function Order() {
+export const Order = () => {
+  const [isOpen, setIsOpen] = useState(false)
   const {
     register,
     handleSubmit,
+    reset,
     control,
     formState: { errors },
   } = useForm<FormData>({
@@ -31,7 +36,16 @@ export function Order() {
     mode: 'onBlur',
     resolver: yupResolver(schemaInput),
   })
-  const onSubmit: SubmitHandler<FormData> = data => console.log(data)
+
+  const onSubmit: SubmitHandler<FormData> = data => {
+    console.log(data)
+    reset()
+    setIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
 
   return (
     <Layout>
@@ -44,6 +58,9 @@ export function Order() {
           <YourOrder register={register} control={control} />
         </form>
       </div>
+      <Modal isOpen={isOpen} onClose={closeModal}>
+        <GoodBuy />
+      </Modal>
     </Layout>
   )
 }

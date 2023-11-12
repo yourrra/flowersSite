@@ -25,20 +25,6 @@ class FormStore {
       [fieldName]: value,
     } as FormData
   }
-
-  clearForm() {
-    this.data = {
-      firstName: '',
-      lastName: '',
-      companyName: '',
-      country: '',
-      streetAddress: '',
-      phoneNumber: '',
-      email: '',
-      createAccount: false,
-      orderNotes: '',
-    } as FormData
-  }
 }
 
 const formStore = new FormStore()

@@ -4,9 +4,10 @@ import { Typography } from '@/components/Typography'
 import { TextArea } from '@/components/FormComponents/TextArea'
 import { observer } from 'mobx-react-lite'
 import formStore from '@/stores/FormStore'
+import { FormState, UseFormReturn } from 'react-hook-form'
+import { ChangeEvent } from 'react'
 
 import styles from './Details.module.css'
-import { FormState, UseFormReturn } from 'react-hook-form'
 
 type Props = {
   register: UseFormReturn<FormData>['register']
@@ -31,7 +32,7 @@ export const Details = observer(({ register, errors }: Props) => {
     )
   }
 
-  const handlePhoneInputChange = e => {
+  const handlePhoneInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const phoneNumber = e.target.value
     e.target.value = phoneFormat(phoneNumber)
     formStore.updateField('phoneNumber', e.target.value)
