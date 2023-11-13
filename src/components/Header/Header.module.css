@@ -80,10 +80,7 @@
 
       .City {
         display: flex;
-
-        .Rome {
-          color: var(--colors-blue-700);
-        }
+        gap: 8px;
       }
     }
 

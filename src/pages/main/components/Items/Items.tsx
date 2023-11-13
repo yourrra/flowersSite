@@ -23,6 +23,10 @@ export const Items = observer(() => {
     itemStore.fetchData()
   }, [])
 
+  const toggleSortOrder = (currentSort: string) => {
+    itemStore.setSort(currentSort)
+  }
+
   return (
     <section className={styles.Wrapper}>
       <div className={styles.Sort}>
@@ -86,6 +90,8 @@ export const Items = observer(() => {
         </div>
         <Select
           label={'Sort'}
+          defaultValue={itemStore.sort}
+          ValueChange={toggleSortOrder}
           options={[
             {
               id: 1,

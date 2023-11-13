@@ -15,6 +15,7 @@ import arrow from '../../assets/arrow-bl.svg'
 import map from '../../assets/map.svg'
 
 import styles from './Header.module.css'
+import { Select } from '../Select'
 
 export const Header = observer(() => {
   const { pathname } = useLocation()
@@ -41,10 +42,42 @@ export const Header = observer(() => {
           <div className={styles.Delivery}>
             <div className={styles.City}>
               <img src={map} alt="map" />
-              <div>
-                Send flowers to <span className={styles.Rome}>Rome</span>
-              </div>
-              <img src={arrow} alt="arrow" />
+              <div>Send flowers to </div>
+              <Select
+                label={'City'}
+                defaultValue={'City'}
+                variant="blue"
+                options={[
+                  {
+                    id: 1,
+                    value: 'rome',
+                    name: 'Rome',
+                  },
+                  { id: 2, value: 'madrid', name: 'Madrid' },
+                  { id: 3, value: 'berlin', name: 'Berlin' },
+                  {
+                    id: 4,
+                    value: 'london',
+                    name: 'London',
+                  },
+                  {
+                    id: 5,
+                    value: 'kyiv',
+                    name: 'Kyiv',
+                  },
+                  {
+                    id: 6,
+                    value: 'warszawa',
+                    name: 'Warszawa',
+                  },
+                  {
+                    id: 7,
+                    value: 'moscow',
+                    name: 'Moscow',
+                  },
+                ]}
+              />
+              {/* <img src={arrow} alt="arrow" /> */}
             </div>
             <Link
               type="a"
@@ -71,8 +104,29 @@ export const Header = observer(() => {
             </button>
             <Menu isOpen={isOpen} onClose={closeModal} />
             <div className={styles.Language}>
-              <div>ENG</div>
-              <img src={arrow} alt="arrow" />
+              <Select
+                label={'Lang'}
+                defaultValue={'Lang'}
+                options={[
+                  {
+                    id: 1,
+                    value: 'eng',
+                    name: 'ENG',
+                  },
+                  { id: 2, value: 'es', name: 'ES' },
+                  { id: 3, value: 'fr', name: 'FR' },
+                  {
+                    id: 4,
+                    value: 'it',
+                    name: 'IT',
+                  },
+                  {
+                    id: 5,
+                    value: 'ru',
+                    name: 'RU',
+                  },
+                ]}
+              />
             </div>
           </div>
         </div>

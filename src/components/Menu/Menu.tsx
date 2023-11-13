@@ -2,12 +2,12 @@ import { Portal } from '@/components/Portal'
 import { Link } from '@/components/Link'
 import * as URLS from '../../constants/urls'
 import cn from 'classnames'
+import { useState } from 'react'
+import { Select } from '../Select'
 
-import arrow from '../../assets/arrow-bl.svg'
 import close from '../../assets/close.svg'
 
 import styles from './Menu.module.css'
-import { useState } from 'react'
 
 type Props = {
   isOpen: boolean
@@ -67,8 +67,29 @@ export const Menu = ({ isOpen, onClose }: Props) => {
               </ul>
             </nav>
             <div className={styles.Language}>
-              <div>ENG</div>
-              <img src={arrow} alt="arrow" />
+              <Select
+                label={'Lang'}
+                defaultValue={'Lang'}
+                options={[
+                  {
+                    id: 1,
+                    value: 'eng',
+                    name: 'ENG',
+                  },
+                  { id: 2, value: 'es', name: 'ES' },
+                  { id: 3, value: 'fr', name: 'FR' },
+                  {
+                    id: 4,
+                    value: 'it',
+                    name: 'IT',
+                  },
+                  {
+                    id: 5,
+                    value: 'ru',
+                    name: 'RU',
+                  },
+                ]}
+              />
             </div>
           </div>
         </div>

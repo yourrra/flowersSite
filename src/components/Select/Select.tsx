@@ -19,6 +19,7 @@ type Props = PropsWithChildren & SelectHTMLAttributes<HTMLSelectElement>
 
 type PropsSelect = {
   label: string
+  ValueChange?: () => void
   variant?: 'blue'
   options?: option[]
 } & SelectHTMLAttributes<HTMLSelectElement>
@@ -40,25 +41,22 @@ const SelectItem = forwardRef<HTMLSelectElement, Props>(
   },
 )
 
-const toggleSortOrder = (currentSort: string) => {
-  itemStore.setSort(currentSort)
-}
-
 export const Select = observer(
   ({
     label,
     variant,
     className = '',
+    ValueChange,
     options,
     ...htmlSelectProps
   }: PropsSelect) => {
     return (
-      <RadixSelect.Root value={itemStore.sort} onValueChange={toggleSortOrder}>
+      <RadixSelect.Root onValueChange={ValueChange}>
         <RadixSelect.Trigger
           className={cn(styles.SelectTrigger, {
             [styles.isBlue]: variant === 'blue',
           })}
-          aria-label="Sort"
+          aria-label={label}
         >
           <RadixSelect.Value placeholder={label} />
 
