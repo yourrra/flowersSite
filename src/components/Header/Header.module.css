@@ -113,6 +113,7 @@
     }
 
     .Link {
+      position: relative;
       padding: 8px 0;
     }
 
@@ -120,4 +121,21 @@
       border-bottom: 3px solid var(--colors-blue-700);
     }
   }
+}
+
+.Indicator {
+  position: absolute;
+  top: 3px;
+  right: -10px;
+  display: flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--colors-red-700);
+  color: var(--colors-white);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
 }

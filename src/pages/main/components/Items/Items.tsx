@@ -8,8 +8,6 @@ import cn from 'classnames'
 
 import styles from './Items.module.css'
 
-import arrow from '@/assets/arrow-bl.svg'
-
 export const Items = observer(() => {
   const { data, visibleItems, selectedCategory, sortedData } = itemStore
 

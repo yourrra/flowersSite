@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom'
 import { Menu } from '@/components/Menu'
 import { useState } from 'react'
 import cn from 'classnames'
+import { observer } from 'mobx-react-lite'
+import cartStore from '@/stores/CartStore'
 
 import phone from '../../assets/phone.svg'
 import menu from '../../assets/menu.svg'
@@ -14,7 +16,7 @@ import map from '../../assets/map.svg'
 
 import styles from './Header.module.css'
 
-export function Header() {
+export const Header = observer(() => {
   const { pathname } = useLocation()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -104,9 +106,16 @@ export function Header() {
             <Link type="link" props={{ to: URLS.CART }} icon={cart}>
               Cart
             </Link>
+            {cartStore.cartItems.length > 0 ? (
+              <div className={styles.Indicator}>
+                {cartStore.cartItems.length}
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </nav>
       </header>
     </div>
   )
-}
+})
