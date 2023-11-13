@@ -3,7 +3,6 @@ import cn from 'classnames'
 import { PropsWithChildren, SelectHTMLAttributes, forwardRef } from 'react'
 import { Typography } from '../Typography'
 import { observer } from 'mobx-react-lite'
-import itemStore from '@/stores/ItemStore'
 
 import styles from './Select.module.css'
 

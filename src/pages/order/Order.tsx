@@ -8,11 +8,13 @@ import { schemaInput } from '@/schema/schemaInput'
 import { Modal } from '@/components/Modal'
 import { GoodBuy } from './components/GoodBuy'
 import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
 import formStore from '@/stores/FormStore'
+import cartStore from '@/stores/CartStore'
 
 import styles from './Order.module.css'
 
-export const Order = () => {
+export const Order = observer(() => {
   const [isOpen, setIsOpen] = useState(false)
   const {
     register,
@@ -40,6 +42,7 @@ export const Order = () => {
   const onSubmit: SubmitHandler<FormData> = data => {
     console.log(data)
     reset()
+    cartStore.clearCartItem()
     setIsOpen(true)
   }
 
@@ -63,4 +66,4 @@ export const Order = () => {
       </Modal>
     </Layout>
   )
-}
+})

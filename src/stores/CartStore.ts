@@ -64,6 +64,10 @@ class CartStore {
   getCartItems() {
     return this.cartItems
   }
+
+  clearCartItem() {
+    this.cartItems = []
+  }
 }
 
 const cartStore = new CartStore()

@@ -6,11 +6,19 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
+  @media (width <= 490px) {
+    justify-content: center;
+  }
 }
 
 .ButtonWrapper {
   display: flex;
   gap: 24px;
+
+  @media (width <= 490px) {
+    display: none;
+  }
 }
 
 .isActiveButton {
